@@ -11,8 +11,8 @@ const Stack = require('@react-navigation/native-stack').createNativeStackNavigat
 export default function App() {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="Home">
-        <Stack.Screen name="Home" component={Home} />
+      <Stack.Navigator initialRouteName="Inicio">
+        <Stack.Screen name="Inicio" component={Home} />
       </Stack.Navigator>
     </NavigationContainer>
   );
