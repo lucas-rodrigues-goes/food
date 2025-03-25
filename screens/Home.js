@@ -1,23 +1,9 @@
 import * as React from 'react';
-import { View, Text, Image, Button, StyleSheet, BackHandler } from 'react-native';
 
-export default function HomeScreen({ navigation }) {
-  return (
-    <View>
-      <View style={styles.container}>
-        <Image style={styles.logo} source={require('../assets/snack-icon.png')} />
-        <Text style={styles.title} >Food Park</Text>
-      </View>
-      <View style={styles.button}>
-        <Button title="Ver Contatos" onPress={() => navigation.navigate('Home')} />
-      </View>
-      <View style={styles.button}>
-        <Button title="Sair" onPress={() => BackHandler.exitApp() } />
-      </View>
-    </View>
-  );
-}
+// Components
+const { View, Text, Image, Button, StyleSheet, BackHandler } = require('react-native')
 
+// Styling
 const styles = StyleSheet.create({
   container: {
     alignItems: 'center',
@@ -36,3 +22,21 @@ const styles = StyleSheet.create({
     padding: 15
   }
 });
+
+// Output
+module.exports = function HomeScreen({ navigation }) {
+  return (
+    <View>
+      <View style={styles.container}>
+        <Image style={styles.logo} source={require('../assets/snack-icon.png')} />
+        <Text style={styles.title} >Food Park</Text>
+      </View>
+      <View style={styles.button}>
+        <Button title="Ver Contatos" onPress={() => navigation.navigate('Casa')} />
+      </View>
+      <View style={styles.button}>
+        <Button title="Sair" onPress={() => BackHandler.exitApp() } />
+      </View>
+    </View>
+  );
+}
