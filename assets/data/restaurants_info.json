@@ -1,0 +1,56 @@
+[
+    {
+        "name": "Hamburgueria Brasil",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris maximus, risus ut euismod auctor, dolor magna ornare ante, non ornare urna ex ut lorem. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam sit amet risus ac lorem efficitur sollicitudin.",
+        "phone": "+5548111049028",
+        "whatsapp": "+5548111049028",
+        "email": "contato@hamburgueriabrasil.com.br",
+        "facebook": "https://facebook.com/hamburgueriabrasil",
+        "instagram": "https://instagram.com/hamburgueriabrasil"
+    },
+    {
+        "name": "Acarajé da Baiana",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris maximus, risus ut euismod auctor, dolor magna ornare ante, non ornare urna ex ut lorem. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam sit amet risus ac lorem efficitur sollicitudin.",
+        "phone": "+5548111049028",
+        "whatsapp": "+5548111049028",
+        "email": "contato@acarajebaiana.com.br",
+        "facebook": "https://facebook.com/acarajebaiana",
+        "instagram": "https://instagram.com/acarajebaiana"
+    },
+    {
+        "name": "Boteco Zé Pilintra",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris maximus, risus ut euismod auctor, dolor magna ornare ante, non ornare urna ex ut lorem. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam sit amet risus ac lorem efficitur sollicitudin.",
+        "phone": "+5548111049028",
+        "whatsapp": "+5548111049028",
+        "email": "contato@zepilintraboteco.com.br",
+        "facebook": "https://facebook.com/zepilintraboteco",
+        "instagram": "https://instagram.com/zepilintraboteco"
+    },
+    {
+        "name": "Gaúcho na Brasa",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris maximus, risus ut euismod auctor, dolor magna ornare ante, non ornare urna ex ut lorem. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam sit amet risus ac lorem efficitur sollicitudin.",
+        "phone": "+5548111049028",
+        "whatsapp": "+5548111049028",
+        "email": "contato@gauchonabrasa.com.br",
+        "facebook": "https://facebook.com/gauchonabrasa",
+        "instagram": "https://instagram.com/gauchonabrasa"
+    },
+    {
+        "name": "Açaí Ipiranga",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris maximus, risus ut euismod auctor, dolor magna ornare ante, non ornare urna ex ut lorem. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam sit amet risus ac lorem efficitur sollicitudin.",
+        "phone": "+5548111049028",
+        "whatsapp": "+5548111049028",
+        "email": "contato@acaiipiranga.com.br",
+        "facebook": "https://facebook.com/acaiipiranga",
+        "instagram": "https://instagram.com/acaiipiranga"
+    },
+    {
+        "name": "Chopperia Araújo",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris maximus, risus ut euismod auctor, dolor magna ornare ante, non ornare urna ex ut lorem. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam sit amet risus ac lorem efficitur sollicitudin.",
+        "phone": "+5548111049028",
+        "whatsapp": "+5548111049028",
+        "email": "contato@chopperiaaraujo.com.br",
+        "facebook": "https://facebook.com/chopperiaaraujo",
+        "instagram": "https://instagram.com/chopperiaaraujo"
+    }
+]

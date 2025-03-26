@@ -10,7 +10,6 @@ const styles = require('../style/general');
 // Assets
 const contactInfo = require('../assets/data/food_hall_contact_info.json')
 const logoImage = require('../assets/images/logo_food_hall.png')
-// const localizationImage = require('../assets/images/patio_food_hall.jpg')
 const artist1Video = require('../assets/videos/artist_1_video.mp4')
 
 
