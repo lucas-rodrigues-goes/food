@@ -1,20 +1,18 @@
 import * as React from 'react';
+
+// Components
 const { Text, Image, ScrollView, Linking } = require('react-native');
 const { Center, Container } = require('../components/structure');
 const { Button, ImageButton } = require('../components/buttons')
 const styles = require('../style/general');
 
+// Assets
+const contactInfo = require('../assets/data/food_hall_contact_info.json')
+const logoImage = require('../assets/images/logo_food_hall.png')
+const localizationImage = require('../assets/images/patio_food_hall.jpg')
+
 // Output
 module.exports = function Home({ navigation }) {
-	const contactInfo = {
-		address: 'Rua Exemplo, 123 - Centro, São Paulo/SP',
-		phone: '+551112345678',
-		whatsapp: '+5511987654321',
-		website: 'https://www.patioexemplo.com.br',
-		email: 'contato@patioexemplo.com.br',
-		facebook: 'https://facebook.com/patioexemplo',
-		instagram: 'https://instagram.com/patioexemplo',
-	};
 
 	// Button Handlers
 	const handleOpenMap = () => {
@@ -31,7 +29,7 @@ module.exports = function Home({ navigation }) {
 			{/* Logo */}
 			<Image
 			  style={styles.logo}
-			  source={require('../assets/logo-transparent.png')} 
+			  source={logoImage} 
 			/>
 	
 			{/* Localização */}
@@ -39,7 +37,7 @@ module.exports = function Home({ navigation }) {
 				<Text style={styles.contactText}>{contactInfo.address}</Text>
 				<Center>
 					<ImageButton
-						source={require('../assets/patio1.jpg')}
+						source={localizationImage}
 						onPress={handleOpenMap}
 					/>
 				</Center>

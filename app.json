@@ -8,7 +8,7 @@
     "userInterfaceStyle": "light",
     "newArchEnabled": true,
     "splash": {
-      "image": "./assets/splash-icon.png",
+      "image": "./assets/image/logo_food_hall.png",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
