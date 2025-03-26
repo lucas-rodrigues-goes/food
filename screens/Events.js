@@ -2,12 +2,17 @@ import * as React from 'react';
 
 // Components
 const { Text, Image, ScrollView, Linking } = require('react-native');
+const { Video } = require('react-native-video');
 const { Center, Container } = require('../components/structure');
-const { Button, ImageButton } = require('../components/buttons')
+const { Button } = require('../components/buttons')
 const styles = require('../style/general');
 
 // Assets
+const contactInfo = require('../assets/data/food_hall_contact_info.json')
 const logoImage = require('../assets/images/logo_food_hall.png')
+// const localizationImage = require('../assets/images/patio_food_hall.jpg')
+const artist1Video = require('../assets/videos/artist_1_video.mp4')
+
 
 // Output
 module.exports = function Events({ navigation }) {
@@ -31,13 +36,16 @@ module.exports = function Events({ navigation }) {
 			/>
 	
 			{/* Eventos */}
-			<Container title={"Visite nos"}>
-				<Text style={styles.contactText}>{contactInfo.address}</Text>
+			<Container title={"Artista 1"}>
+				<Text style={styles.contactText}>Dia 26/03 as 20h</Text>
 				<Center>
-					<ImageButton
-						source={localizationImage}
-						onPress={handleOpenMap}
-					/>
+                    <Video  
+                        source={artist1Video}
+                        paused={false}
+                        style={styles.video}
+                        repeat={false}
+                        onError={(e) => console.log(e)}
+                    />
 				</Center>
 			</Container>
 	

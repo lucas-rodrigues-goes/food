@@ -20,4 +20,8 @@ module.exports = StyleSheet.create({
     marginBottom: 8,
     color: '#666',
   },
+  video: {
+    height: 160,
+    width: 280,
+  },
 });
