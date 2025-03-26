@@ -10,6 +10,9 @@ const styles = require('../style/general');
 const restaurantsInfo = require('../assets/data/restaurants_info.json')
 const logoImage = require('../assets/images/logo_food_hall.png')
 
+// Handlers
+const handleRestaurantInfo = function (restaurant) {navigation.navigate('Eventos', restaurant)};
+
 // Output
 module.exports = function Restaurants({ navigation }) {
 
@@ -24,7 +27,7 @@ module.exports = function Restaurants({ navigation }) {
 	
 			{/* Iterando sobre os restaurantes */}
             {restaurantsInfo.map((restaurant, index) => (
-				<TouchableOpacity style={{width: '100%'}} onPress={() => navigation.navigate('Eventos')}>
+				<TouchableOpacity style={{width: '100%'}} onPress={() => handleRestaurantInfo(restaurant)}>
 					<Container key={index} title={restaurant.name}>
 						{/* <Center>
 							<Image
