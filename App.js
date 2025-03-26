@@ -4,8 +4,8 @@ import * as React from 'react';
 const Home = require('./screens/Home');
 
 // Components
+const { Navigator, Screen } = require('@react-navigation/drawer').createDrawerNavigator()
 const { NavigationContainer } = require('@react-navigation/native')
-const { Navigator, Screen } = require('@react-navigation/native-stack').createNativeStackNavigator()
 
 // Output
 export default function App() {
