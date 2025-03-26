@@ -10,11 +10,27 @@ const styles = require('../style/general');
 const restaurantsInfo = require('../assets/data/restaurants_info.json')
 const logoImage = require('../assets/images/logo_food_hall.png')
 
-// Handlers
-const handleRestaurantInfo = function (restaurant) {navigation.navigate('Eventos', restaurant)};
-
 // Output
 module.exports = function Restaurants({ navigation }) {
+	// Create Restaurant List
+	const restaurantElements = []
+	for (const restaurant of restaurantsInfo) {
+		// Handle element navigation
+		const navigate = () => navigation.navigate('R2', restaurant)
+
+		// Add element to list
+		restaurantElements.push(
+			<TouchableOpacity style={{width: '100%'}} onPress={navigate}>
+				<Container title={restaurant.name}>
+					{/* <Center>
+						<Image
+							source={restaurant.image}
+						/>
+					</Center> */}
+				</Container>
+			</TouchableOpacity>
+		)
+	}
 
 	return (
 		<ScrollView>
@@ -25,18 +41,9 @@ module.exports = function Restaurants({ navigation }) {
 			  source={logoImage} 
 			/>
 	
-			{/* Iterando sobre os restaurantes */}
-            {restaurantsInfo.map((restaurant, index) => (
-				<TouchableOpacity style={{width: '100%'}} onPress={() => handleRestaurantInfo(restaurant)}>
-					<Container key={index} title={restaurant.name}>
-						{/* <Center>
-							<Image
-								source={restaurant.image}
-							/>
-						</Center> */}
-					</Container>
-				</TouchableOpacity>
-            ))}
+			{/* Lista de restaurantes */}
+            {restaurantElements}
+
 		  </Center>
 		</ScrollView>
 	  );
