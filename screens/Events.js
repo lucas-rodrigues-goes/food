@@ -8,27 +8,36 @@ const { Button } = require('../components/buttons')
 const styles = require('../style/general');
 
 // Assets
-const artist1Video = require('../assets/videos/artist_1_video.mp4')
-
+const events_info = require('../assets/data/events_info.json')
 
 // Output
 module.exports = function Events({ navigation }) {
+	// Criar lista de eventos
+	const eventElements = []
+	for (const evento of events_info) {
+		// Video source
+		const video = require("../assets/videos/artist_1_video.mp4")
 
-	// Button Handlers
+		// Add element to list
+		eventElements.push(
+			<Container title={evento.name}>
+				<Text style={styles.contactText}>{evento.date}</Text>
+				<Text style={styles.contactText}>{evento.description}</Text>
+				<Center>
+				{Platform.OS === 'web'
+					? (<video src={video} controls style={styles.video} />) 
+					: (<Video source={video} paused={false} style={styles.video} repeat={false} onError={(e) => console.log(e)} /> )}
+				</Center>
+			</Container>
+		)
+	}
 
 	return (
 		<ScrollView>
 		  <Center>
 
-			{/* Eventos */}
-			<Container title={"Artista 1"}>
-				<Text style={styles.contactText}>Dia 26/03 as 20h</Text>
-				<Center>
-				{Platform.OS === 'web' 
-					? (<video src={artist1Video} controls style={styles.video} />) 
-					: (<Video source={artist1Video} paused={false} style={styles.video} repeat={false} onError={(e) => console.log(e)} /> )}
-				</Center>
-			</Container>
+			{/* Lista de Eventos */}
+			{eventElements}
 
 		  </Center>
 		</ScrollView>
