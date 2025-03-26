@@ -8,6 +8,7 @@ function Button({ title, color, textColor, style, ...rest }) {
         marginVertical: 5,
         backgroundColor: color || 'blue',
         borderRadius: 8,
+        width: '100%',
     };
 
     const textStyle = {

@@ -21,7 +21,9 @@ export default function App() {
     		<Screen name="Inicio" component={Home}/>
 			<Screen name='Eventos' component={Events}/>
 			<Screen name='Restaurantes' component={Restaurants}/>
-			<Screen name='R2' component={RestaurantInfo} options={hidden}/>
+			
+			{/* Hidden screen */}
+			<Screen name='Informações do Restaurante' component={RestaurantInfo} options={hidden}/>
     	</Navigator>
     </NavigationContainer>
   );

@@ -3,12 +3,12 @@ import * as React from 'react';
 // Components
 const { Text, Image, ScrollView, Linking } = require('react-native');
 const { Center, Container } = require('../components/structure');
-const { Button, ImageButton } = require('../components/buttons')
+const { Button } = require('../components/buttons')
 const styles = require('../style/general');
 
 // Output
 module.exports = function RestaurantInfo({ route, navigation }) {
-    const {restaurant} = route.params;
+    const restaurant = route.params;
 
 	// Button Handlers
 	const handleOpenMap = () => {
@@ -22,20 +22,10 @@ module.exports = function RestaurantInfo({ route, navigation }) {
 	return (
 		<ScrollView>
 		  <Center>
-			{/* Logo */}
-			<Image
-			  style={styles.logo}
-			  source={logoImage} 
-			/>
-	
 			{/* Informações da loja */}
 			<Container title={restaurant.name}>
 				<Text style={styles.contactText}>{restaurant.description}</Text>
 				<Center>
-					<ImageButton
-						source={localizationImage}
-						onPress={handleOpenMap}
-					/>
                     <Button
                         title="Facebook"
                         onPress={() => Linking.openURL(restaurant.facebook)}
@@ -53,25 +43,28 @@ module.exports = function RestaurantInfo({ route, navigation }) {
                         color="#007bff"
                     />
             
-                    <Text style={[styles.contactText, {marginTop: 15}]}>WhatsApp</Text>
                     <Button
                         title="Enviar Mensagem"
                         onPress={handleWhatsApp}
                         color="#25D366"
                     />
 
-                    <Text style={[styles.contactText, {marginTop: 15}]}>Site Oficial</Text>
                     <Button
                         title="Visitar Website"
                         onPress={() => Linking.openURL(restaurant.website)}
                         color="#6c757d"
                     />
 
-                    <Text style={[styles.contactText, {marginTop: 15}]}>E-mail</Text>
                     <Button
                         title="Enviar E-mail"
                         onPress={handleEmail}
                         color="#dc3545"
+                    />
+
+                    <Button
+                        title="Abrir iFood"
+                        onPress={handleEmail}
+                        color="#e02012"
                     />
 				</Center>
 			</Container>

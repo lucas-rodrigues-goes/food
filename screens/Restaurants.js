@@ -16,7 +16,7 @@ module.exports = function Restaurants({ navigation }) {
 	const restaurantElements = []
 	for (const restaurant of restaurantsInfo) {
 		// Handle element navigation
-		const navigate = () => navigation.navigate('R2', restaurant)
+		const navigate = () => navigation.navigate('Informações do Restaurante', restaurant)
 
 		// Add element to list
 		restaurantElements.push(
