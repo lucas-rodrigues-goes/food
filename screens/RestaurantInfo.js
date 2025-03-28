@@ -1,10 +1,17 @@
 import * as React from 'react';
 
 // Components
-const { Text, Image, ScrollView, Linking } = require('react-native');
+const { Text, Image, ScrollView, Linking, View } = require('react-native');
 const { Center, Container } = require('../components/structure');
-const { Button } = require('../components/buttons')
+const { Button, IconButton } = require('../components/buttons')
 const styles = require('../style/general');
+
+// Assets
+const whatsappIcon = require('../assets/images/whatsapp_logo.png')
+const facebookIcon = require('../assets/images/facebook_logo.png')
+const instagramIcon = require('../assets/images/Instagram_logo.png')
+const emailIcon = require('../assets/images/email_logo.png')
+const ifoodIcon = require('../assets/images/ifood_logo.png')
 
 // Output
 module.exports = function RestaurantInfo({ route, navigation }) {
@@ -26,46 +33,41 @@ module.exports = function RestaurantInfo({ route, navigation }) {
 			<Container title={restaurant.name}>
 				<Text style={styles.contactText}>{restaurant.description}</Text>
 				<Center>
-                    <Button
-                        title="Facebook"
-                        onPress={() => Linking.openURL(restaurant.facebook)}
-                        color="#3b5998"
-                    />
-                    <Button
-                        title="Instagram"
-                        onPress={() => Linking.openURL(restaurant.instagram)}
-                        color="#E1306C"
-                    />
+                    <View style={{ flexDirection: 'row', justifyContent: 'space-around'}}>
+                        <IconButton
+                            source={facebookIcon}
+                            onPress={() => Linking.openURL(restaurant.facebook)}
+                        />
+                        <IconButton
+                            source={instagramIcon}
+                            onPress={() => Linking.openURL(restaurant.instagram)}
+                        />
+                        <IconButton
+                            source={whatsappIcon}
+                            onPress={handleWhatsApp}
+                        />
+                        <IconButton
+                            source={emailIcon}
+                            onPress={handleEmail}
+                        />
+                        <IconButton
+                            source={ifoodIcon}
+                            onPress={handleEmail}
+                        />
+                    </View>
+
                     <Text style={[styles.contactText, {marginTop: 15}]}>{restaurant.phone}</Text>
                     <Button
                         title="Ligar Agora"
                         onPress={handleCall}
                         color="#007bff"
                     />
-            
-                    <Button
-                        title="Enviar Mensagem"
-                        onPress={handleWhatsApp}
-                        color="#25D366"
-                    />
-
                     <Button
                         title="Visitar Website"
                         onPress={() => Linking.openURL(restaurant.website)}
                         color="#6c757d"
                     />
 
-                    <Button
-                        title="Enviar E-mail"
-                        onPress={handleEmail}
-                        color="#dc3545"
-                    />
-
-                    <Button
-                        title="Abrir iFood"
-                        onPress={handleEmail}
-                        color="#e02012"
-                    />
 				</Center>
 			</Container>
 		  </Center>

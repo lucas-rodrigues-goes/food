@@ -42,4 +42,21 @@ function ImageButton({ onPress, style, ...rest }) {
     );
 }
 
-module.exports = { Button, ImageButton };
+// Icon that behaves like a button 
+function IconButton({ onPress, style, ...rest }) {
+    const iconStyle = {
+        width: 35,
+        height: 35,
+        borderRadius: 10,
+        margin: 5,
+    };
+
+    // Output
+    return (
+        <TouchableOpacity onPress={onPress}>
+            <Image style={{...iconStyle, ...style}} {...rest}/>
+        </TouchableOpacity>
+    );
+}
+
+module.exports = { Button, ImageButton, IconButton };
