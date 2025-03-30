@@ -20,6 +20,12 @@ module.exports = StyleSheet.create({
     marginBottom: 8,
     color: '#666',
   },
+  price: {
+    fontSize: 14,
+    marginBottom: 8,
+    color: '#666',
+    fontWeight: 'bold',
+  },
   video: {
     height: 160,
     width: 280,

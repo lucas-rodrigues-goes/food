@@ -27,7 +27,7 @@ module.exports = function MenuItem({ route }) {
                 <Text style={styles.contactText}>{item.description}</Text>
                 <Text style={styles.contactText}>{item.quantity}</Text>
                 <Text style={styles.contactText}>{item.ingredients}</Text>
-                <Text style={styles.contactText}>{item.price}</Text>
+                <Text style={styles.price}>{item.price}</Text>
             </Container>
           </Center>
         </ScrollView>

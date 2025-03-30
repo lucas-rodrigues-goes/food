@@ -37,12 +37,13 @@ module.exports = function RestaurantInfo({ route, navigation }) {
 		// Add element to list
 		menuElements.push(
 				<Container>
-					<TouchableOpacity style={{ flexDirection: 'row', justifyContent: 'flext-start'}} onPress={navigate}>
+					<TouchableOpacity style={{ flexDirection: 'row', justifyContent: 'space-between'}} onPress={navigate}>
 						<Image
                             style={styles.icon}
 							source={menuImage}
 						/>
                         <Text style={styles.contactText}>{menuItem.name}</Text>
+                        <Text style={styles.price}>{menuItem.price}</Text>
 					</TouchableOpacity>
 				</Container>
 
