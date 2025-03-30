@@ -7,27 +7,27 @@
         "email": "contato@hamburgueriabrasil.com.br",
         "facebook": "https://facebook.com/hamburgueriabrasil",
         "instagram": "https://instagram.com/hamburgueriabrasil",
-        "cardapio": [
+        "menu": [
             {
-                "nome": "Brasil Burger",
-                "descricao": "Hambúrguer artesanal 180g, queijo da serra, bacon crocante, alface, tomate e molho especial.",
-                "quantidade": 300,
-                "ingredientes": ["Pão brioche", "Carne Angus 180g", "Queijo da serra", "Bacon", "Alface", "Tomate", "Molho especial"],
-                "preco": 28.90
+                "name": "Brasil Burger",
+                "description": "Hambúrguer artesanal 180g, queijo da serra, bacon crocante, alface, tomate e molho especial.",
+                "quantity": 300,
+                "ingredients": ["Pão brioche", "Carne Angus 180g", "Queijo da serra", "Bacon", "Alface", "Tomate", "Molho especial"],
+                "price": 28.90
             },
             {
-                "nome": "Frango Crispy",
-                "descricao": "Hambúrguer de frango empanado, queijo prato, rúcula e maionese de ervas.",
-                "quantidade": 280,
-                "ingredientes": ["Pão australiano", "Filé de frango empanado", "Queijo prato", "Rúcula", "Maionese de ervas"],
-                "preco": 22.50
+                "name": "Frango Crispy",
+                "description": "Hambúrguer de frango empanado, queijo prato, rúcula e maionese de ervas.",
+                "quantity": 280,
+                "ingredients": ["Pão australiano", "Filé de frango empanado", "Queijo prato", "Rúcula", "Maionese de ervas"],
+                "price": 22.50
             },
             {
-                "nome": "Batata Rustica",
-                "descricao": "Porção de batata rústica temperada com alecrim e sal marinho.",
-                "quantidade": 200,
-                "ingredientes": ["Batata", "Alecrim", "Sal marinho", "Azeite"],
-                "preco": 12.00
+                "name": "Batata Rustica",
+                "description": "Porção de batata rústica temperada com alecrim e sal marinho.",
+                "quantity": 200,
+                "ingredients": ["Batata", "Alecrim", "Sal marinho", "Azeite"],
+                "price": 12.00
             }
         ]
     },
@@ -39,27 +39,27 @@
         "email": "contato@acarajebaiana.com.br",
         "facebook": "https://facebook.com/acarajebaiana",
         "instagram": "https://instagram.com/acarajebaiana",
-        "cardapio": [
+        "menu": [
             {
-                "nome": "Acarajé Tradicional",
-                "descricao": "Bolinho de feijão-fradinho frito no azeite de dendê, recheado com vatapá, caruru e camarão seco.",
-                "quantidade": 250,
-                "ingredientes": ["Feijão-fradinho", "Dendê", "Vatapá", "Caruru", "Camarão seco", "Pimenta"],
-                "preco": 18.90
+                "name": "Acarajé Tradicional",
+                "description": "Bolinho de feijão-fradinho frito no azeite de dendê, recheado com vatapá, caruru e camarão seco.",
+                "quantity": 250,
+                "ingredients": ["Feijão-fradinho", "Dendê", "Vatapá", "Caruru", "Camarão seco", "Pimenta"],
+                "price": 18.90
             },
             {
-                "nome": "Abará",
-                "descricao": "Versão cozida do acarajé, menos calórica e igualmente saborosa.",
-                "quantidade": 220,
-                "ingredientes": ["Feijão-fradinho", "Dendê", "Cebola", "Gengibre", "Camarão seco"],
-                "preco": 16.50
+                "name": "Abará",
+                "description": "Versão cozida do acarajé, menos calórica e igualmente saborosa.",
+                "quantity": 220,
+                "ingredients": ["Feijão-fradinho", "Dendê", "Cebola", "Gengibre", "Camarão seco"],
+                "price": 16.50
             },
             {
-                "nome": "Cocada Cremosa",
-                "descricao": "Doce tradicional de coco, cremoso e irresistível.",
-                "quantidade": 100,
-                "ingredientes": ["Coco ralado", "Leite condensado", "Açúcar"],
-                "preco": 6.00
+                "name": "Cocada Cremosa",
+                "description": "Doce tradicional de coco, cremoso e irresistível.",
+                "quantity": 100,
+                "ingredients": ["Coco ralado", "Leite condensado", "Açúcar"],
+                "price": 6.00
             }
         ]
     },
@@ -71,27 +71,27 @@
         "email": "contato@zepilintraboteco.com.br",
         "facebook": "https://facebook.com/zepilintraboteco",
         "instagram": "https://instagram.com/zepilintraboteco",
-        "cardapio": [
+        "menu": [
             {
-                "nome": "Pastel de Carne Seca",
-                "descricao": "Pastel frito crocante com recheio de carne seca desfiada e queijo coalho.",
-                "quantidade": 180,
-                "ingredientes": ["Massa de pastel", "Carne seca", "Queijo coalho", "Tempero verde"],
-                "preco": 14.90
+                "name": "Pastel de Carne Seca",
+                "description": "Pastel frito crocante com recheio de carne seca desfiada e queijo coalho.",
+                "quantity": 180,
+                "ingredients": ["Massa de pastel", "Carne seca", "Queijo coalho", "Tempero verde"],
+                "price": 14.90
             },
             {
-                "nome": "Bolinho de Bacalhau",
-                "descricao": "Porção com 6 unidades de bolinho de bacalhau cremoso por dentro e crocante por fora.",
-                "quantidade": 150,
-                "ingredientes": ["Bacalhau", "Batata", "Salsa", "Ovo", "Farinha de trigo"],
-                "preco": 22.00
+                "name": "Bolinho de Bacalhau",
+                "description": "Porção com 6 unidades de bolinho de bacalhau cremoso por dentro e crocante por fora.",
+                "quantity": 150,
+                "ingredients": ["Bacalhau", "Batata", "Salsa", "Ovo", "Farinha de trigo"],
+                "price": 22.00
             },
             {
-                "nome": "Chopp Artesanal",
-                "descricao": "Chopp gelado da cervejaria local, estilo Pilsen refrescante.",
-                "quantidade": 300,
-                "ingredientes": ["Água", "Malte", "Lúpulo", "Fermento"],
-                "preco": 12.00
+                "name": "Chopp Artesanal",
+                "description": "Chopp gelado da cervejaria local, estilo Pilsen refrescante.",
+                "quantity": 300,
+                "ingredients": ["Água", "Malte", "Lúpulo", "Fermento"],
+                "price": 12.00
             }
         ]
     },
@@ -103,27 +103,27 @@
         "email": "contato@gauchonabrasa.com.br",
         "facebook": "https://facebook.com/gauchonabrasa",
         "instagram": "https://instagram.com/gauchonabrasa",
-        "cardapio": [
+        "menu": [
             {
-                "nome": "Xis Gaúcho",
-                "descricao": "Sanduíche com pão de hambúrguer, filé mignon, queijo prato, ovo, alface, tomate e maionese.",
-                "quantidade": 400,
-                "ingredientes": ["Pão de hambúrguer", "Filé mignon", "Queijo prato", "Ovo", "Alface", "Tomate", "Maionese"],
-                "preco": 32.90
+                "name": "Xis Gaúcho",
+                "description": "Sanduíche com pão de hambúrguer, filé mignon, queijo prato, ovo, alface, tomate e maionese.",
+                "quantity": 400,
+                "ingredients": ["Pão de hambúrguer", "Filé mignon", "Queijo prato", "Ovo", "Alface", "Tomate", "Maionese"],
+                "price": 32.90
             },
             {
-                "nome": "Costela no Pão",
-                "descricao": "Pão francês recheado com costela desfiada e molho barbecue.",
-                "quantidade": 350,
-                "ingredientes": ["Pão francês", "Costela bovina", "Molho barbecue", "Vinagrete"],
-                "preco": 26.50
+                "name": "Costela no Pão",
+                "description": "Pão francês recheado com costela desfiada e molho barbecue.",
+                "quantity": 350,
+                "ingredients": ["Pão francês", "Costela bovina", "Molho barbecue", "Vinagrete"],
+                "price": 26.50
             },
             {
-                "nome": "Salada Gaúcha",
-                "descricao": "Mix de folhas, tomate, pepino, croutons e tiras de carne grelhada.",
-                "quantidade": 300,
-                "ingredientes": ["Alface", "Rúcula", "Tomate", "Pepino", "Croutons", "Carne bovina"],
-                "preco": 24.00
+                "name": "Salada Gaúcha",
+                "description": "Mix de folhas, tomate, pepino, croutons e tiras de carne grelhada.",
+                "quantity": 300,
+                "ingredients": ["Alface", "Rúcula", "Tomate", "Pepino", "Croutons", "Carne bovina"],
+                "price": 24.00
             }
         ]
     },
@@ -135,27 +135,27 @@
         "email": "contato@acaiipiranga.com.br",
         "facebook": "https://facebook.com/acaiipiranga",
         "instagram": "https://instagram.com/acaiipiranga",
-        "cardapio": [
+        "menu": [
             {
-                "nome": "Açaí Tradicional",
-                "descricao": "Açaí cremoso acompanhado de banana, granola e mel.",
-                "quantidade": 400,
-                "ingredientes": ["Açaí puro", "Banana", "Granola", "Mel"],
-                "preco": 18.00
+                "name": "Açaí Tradicional",
+                "description": "Açaí cremoso acompanhado de banana, granola e mel.",
+                "quantity": 400,
+                "ingredients": ["Açaí puro", "Banana", "Granola", "Mel"],
+                "price": 18.00
             },
             {
-                "nome": "Açaí Power",
-                "descricao": "Açaí com whey protein, morango, blueberry e pasta de amendoim.",
-                "quantidade": 450,
-                "ingredientes": ["Açaí", "Whey protein", "Morango", "Blueberry", "Pasta de amendoim"],
-                "preco": 24.90
+                "name": "Açaí Power",
+                "description": "Açaí com whey protein, morango, blueberry e pasta de amendoim.",
+                "quantity": 450,
+                "ingredients": ["Açaí", "Whey protein", "Morango", "Blueberry", "Pasta de amendoim"],
+                "price": 24.90
             },
             {
-                "nome": "Smoothie de Frutas",
-                "descricao": "Bebida refrescante de morango, banana e iogurte natural.",
-                "quantidade": 350,
-                "ingredientes": ["Morango", "Banana", "Iogurte natural", "Mel"],
-                "preco": 14.50
+                "name": "Smoothie de Frutas",
+                "description": "Bebida refrescante de morango, banana e iogurte natural.",
+                "quantity": 350,
+                "ingredients": ["Morango", "Banana", "Iogurte natural", "Mel"],
+                "price": 14.50
             }
         ]
     },
@@ -167,27 +167,27 @@
         "email": "contato@chopperiaaraujo.com.br",
         "facebook": "https://facebook.com/chopperiaaraujo",
         "instagram": "https://instagram.com/chopperiaaraujo",
-        "cardapio": [
+        "menu": [
             {
-                "nome": "Torresmo Crocante",
-                "descricao": "Porção de torresmo dourado e sequinho, acompanhado de limão.",
-                "quantidade": 200,
-                "ingredientes": ["Pele de porco", "Sal grosso", "Limão"],
-                "preco": 16.90
+                "name": "Torresmo Crocante",
+                "description": "Porção de torresmo dourado e sequinho, acompanhado de limão.",
+                "quantity": 200,
+                "ingredients": ["Pele de porco", "Sal grosso", "Limão"],
+                "price": 16.90
             },
             {
-                "nome": "Onion Rings",
-                "descricao": "Anéis de cebola empanados e fritos, servidos com molho barbecue.",
-                "quantidade": 180,
-                "ingredientes": ["Cebola", "Farinha de rosca", "Ovo", "Molho barbecue"],
-                "preco": 14.50
+                "name": "Onion Rings",
+                "description": "Anéis de cebola empanados e fritos, servidos com molho barbecue.",
+                "quantity": 180,
+                "ingredients": ["Cebola", "Farinha de rosca", "Ovo", "Molho barbecue"],
+                "price": 14.50
             },
             {
-                "nome": "Cerveja Artesanal IPA",
-                "descricao": "Cerveja lupulada com amargor equilibrado e notas cítricas.",
-                "quantidade": 500,
-                "ingredientes": ["Água", "Malte", "Lúpulo", "Fermento"],
-                "preco": 18.00
+                "name": "Cerveja Artesanal IPA",
+                "description": "Cerveja lupulada com amargor equilibrado e notas cítricas.",
+                "quantity": 500,
+                "ingredients": ["Água", "Malte", "Lúpulo", "Fermento"],
+                "price": 18.00
             }
         ]
     }

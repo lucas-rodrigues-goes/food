@@ -24,4 +24,13 @@ module.exports = StyleSheet.create({
     height: 160,
     width: 280,
   },
+  image: {
+    height: 160,
+    width: 320,
+    marginBottom: 20,
+  },
+  icon: {
+    width: 30,
+    height: 30,
+  },
 });

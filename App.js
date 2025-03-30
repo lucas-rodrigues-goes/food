@@ -5,6 +5,7 @@ const Home = require('./screens/Home');
 const Events = require('./screens/Events');
 const Restaurants = require('./screens/Restaurants');
 const RestaurantInfo = require('./screens/RestaurantInfo');
+const MenuItem = require('./screens/menuItem');
 
 // Components
 const { Navigator, Screen } = require('@react-navigation/drawer').createDrawerNavigator()
@@ -24,6 +25,7 @@ export default function App() {
 			
 			{/* Hidden screen */}
 			<Screen name='Informações do Restaurante' component={RestaurantInfo} options={hidden}/>
+			<Screen name='Item do Cardápio' component={MenuItem} options={hidden} />
     	</Navigator>
     </NavigationContainer>
   );

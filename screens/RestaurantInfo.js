@@ -1,7 +1,7 @@
 import * as React from 'react';
 
 // Components
-const { Text, Image, ScrollView, Linking, View } = require('react-native');
+const { Text, Image, ScrollView, Linking, View, TouchableOpacity } = require('react-native');
 const { Center, Container } = require('../components/structure');
 const { Button, IconButton } = require('../components/buttons')
 const styles = require('../style/general');
@@ -12,6 +12,8 @@ const facebookIcon = require('../assets/images/facebook_logo.png')
 const instagramIcon = require('../assets/images/Instagram_logo.png')
 const emailIcon = require('../assets/images/email_logo.png')
 const ifoodIcon = require('../assets/images/ifood_logo.png')
+const restaurantImage = require('../assets/images/boteco_sample_img.jpg')
+const menuImage = require('../assets/images/menu_sample_img.png')
 
 // Output
 module.exports = function RestaurantInfo({ route, navigation }) {
@@ -26,6 +28,28 @@ module.exports = function RestaurantInfo({ route, navigation }) {
 	const handleWhatsApp = () => Linking.openURL(`https://wa.me/${restaurant.whatsapp}`)
 	const handleEmail = () => Linking.openURL(`mailto:${restaurant.email}?subject=Contato%20Pátio`)
 
+    // Create Menu List
+	const menuElements = []
+	for (const menuItem of restaurant.menu) {
+		// Handle element navigation
+		const navigate = () => navigation.navigate('Item do Cardápio', menuItem)
+
+		// Add element to list
+		menuElements.push(
+				<Container>
+					<TouchableOpacity style={{ flexDirection: 'row', justifyContent: 'flext-start'}} onPress={navigate}>
+						<Image
+                            style={styles.icon}
+							source={menuImage}
+						/>
+                        <Text style={styles.contactText}>{menuItem.name}</Text>
+					</TouchableOpacity>
+				</Container>
+
+		)
+	}
+
+
 	return (
 		<ScrollView>
 		  <Center>
@@ -33,6 +57,12 @@ module.exports = function RestaurantInfo({ route, navigation }) {
 			<Container title={restaurant.name}>
 				<Text style={styles.contactText}>{restaurant.description}</Text>
 				<Center>
+                    <Image 
+                        style={styles.image}
+                        source={restaurantImage}
+                    />
+
+                    {/* Redes Sociais da loja */}
                     <View style={{ flexDirection: 'row', justifyContent: 'space-around'}}>
                         <IconButton
                             source={facebookIcon}
@@ -67,9 +97,11 @@ module.exports = function RestaurantInfo({ route, navigation }) {
                         onPress={() => Linking.openURL(restaurant.website)}
                         color="#6c757d"
                     />
-
 				</Center>
 			</Container>
+            <Container title={"Cardápio"}>
+                {menuElements}
+            </Container>
 		  </Center>
 		</ScrollView>
 	  );
