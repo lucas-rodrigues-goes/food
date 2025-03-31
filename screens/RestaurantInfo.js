@@ -9,7 +9,7 @@ const styles = require('../style/general');
 // Assets
 const whatsappIcon = require('../assets/images/whatsapp_logo.png')
 const facebookIcon = require('../assets/images/facebook_logo.png')
-const instagramIcon = require('../assets/images/Instagram_logo.png')
+const instagramIcon = require('../assets/images/instagram_logo.png')
 const emailIcon = require('../assets/images/email_logo.png')
 const ifoodIcon = require('../assets/images/ifood_logo.png')
 const restaurantImage = require('../assets/images/boteco_sample_img.jpg')
