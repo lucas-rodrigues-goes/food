@@ -1,9 +1,9 @@
 import * as React from 'react';
 
 // Components
-const { Text, Image, ScrollView, Linking } = require('react-native');
+const { View, Text, Image, ScrollView, Linking, TouchableOpacity, Touchable } = require('react-native');
 const { Center, Container } = require('../components/structure');
-const { Button, ImageButton } = require('../components/buttons')
+const { Button, ImageButton, IconButton } = require('../components/buttons')
 const styles = require('../style/general');
 
 // Assets
@@ -20,8 +20,6 @@ module.exports = function Home({ navigation }) {
 		Linking.openURL(url)
 	}
 	const handleCall = () => Linking.openURL(`tel:${contactInfo.phone}`)
-	const handleWhatsApp = () => Linking.openURL(`https://wa.me/${contactInfo.whatsapp}`)
-	const handleEmail = () => Linking.openURL(`mailto:${contactInfo.email}?subject=Contato%20Pátio`)
 
 	return (
 		<ScrollView>
@@ -34,7 +32,14 @@ module.exports = function Home({ navigation }) {
 	
 			{/* Localização */}
 			<Container title={"Visite nos"}>
-				<Text style={styles.contactText}>{contactInfo.address}</Text>
+				{/* Texto indentado */}
+				<View style={{paddingLeft: 10}}>
+					<Text style={styles.contactText}>
+						<Text style={{fontWeight: "bold", display: "inline"}}>
+							Endereço: 
+						</Text> {contactInfo.address}
+					</Text>
+				</View>
 				<Center>
 					<ImageButton
 						source={localizationImage}
@@ -43,49 +48,48 @@ module.exports = function Home({ navigation }) {
 				</Center>
 			</Container>
 	
-			{/* Redes Sociais */}
-			<Container title={"Redes Sociais"}>
-				<Button
-					title="Facebook"
-					onPress={() => Linking.openURL(contactInfo.facebook)}
-					color="#3b5998"
-				/>
-				<Button
-					title="Instagram"
-					onPress={() => Linking.openURL(contactInfo.instagram)}
-					color="#E1306C"
-				/>
-			</Container>
-	
 			{/* Contato */}
 			<Container title={"Informações de contato"}>
-				<Text style={[styles.contactText, {marginTop: 15}]}>{contactInfo.phone}</Text>
-				<Button
-					title="Ligar Agora"
-					onPress={handleCall}
-					color="#007bff"
-				/>
-		
-				<Text style={[styles.contactText, {marginTop: 15}]}>WhatsApp</Text>
-				<Button
-					title="Enviar Mensagem"
-					onPress={handleWhatsApp}
-					color="#25D366"
-				/>
 
-				<Text style={[styles.contactText, {marginTop: 15}]}>Site Oficial</Text>
-				<Button
-					title="Visitar Website"
-					onPress={() => Linking.openURL(contactInfo.website)}
-					color="#6c757d"
-				/>
+				{/* Texto indentado*/}
+				<View style={{paddingLeft: 10}}>
+					{/* Telefone */}
+					<Text style={styles.contactText}>
+						<Text style={{fontWeight: "bold", display: "inline"}}>
+							Telefone: 
+						</Text> {contactInfo.phone}
+					</Text>
 
-				<Text style={[styles.contactText, {marginTop: 15}]}>E-mail</Text>
-				<Button
-					title="Enviar E-mail"
-					onPress={handleEmail}
-					color="#dc3545"
-				/>
+					{/* Site */}
+					<Text style={[styles.contactText, {marginBottom: 20}]}>
+						<Text style={{fontWeight: "bold"}}>
+							Site: 
+						</Text> 
+						<TouchableOpacity style={{display: "inline", color: "#37c"}} onPress={() => Linking.openURL(contactInfo.website)}>
+							<Text> {contactInfo.website}</Text>
+						</TouchableOpacity>
+					</Text>
+				</View>
+
+				{/* Redes Sociais */}
+				<View style={{ flexDirection: 'row', justifyContent: 'center' }}>
+					<IconButton
+						source={require('../assets/images/call_icon.png')}
+						onPress={handleCall}
+					/>
+					<IconButton
+						source={require('../assets/images/whatsapp_logo.png')}
+						onPress={() => Linking.openURL(`https://wa.me/${contactInfo.whatsapp}`)}
+					/>
+					<IconButton
+						source={require('../assets/images/facebook_logo.png')}
+						onPress={() => Linking.openURL(restaurant.facebook)}
+					/>
+					<IconButton
+						source={require('../assets/images/email_logo.png')}
+						onPress={() => Linking.openURL(`mailto:${contactInfo.email}?subject=Contato%20Pátio`)}
+					/>
+				</View>
 			</Container>
 		  </Center>
 		</ScrollView>
