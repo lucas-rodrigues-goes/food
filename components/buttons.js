@@ -43,10 +43,10 @@ function ImageButton({ onPress, style, ...rest }) {
 }
 
 // Icon that behaves like a button 
-function IconButton({ onPress, style, ...rest }) {
+function IconButton({ onPress, size, style, ...rest }) {
     const iconStyle = {
-        width: 35,
-        height: 35,
+        width: size || 35,
+        height: size || 35,
         borderRadius: 10,
         margin: 5,
     };
