@@ -1,8 +1,14 @@
 [
     {
-        "name": "Artista José Manezinho",
-        "date": "Dia 26/03 as 20h",
-        "description": "Venha participar do evento do José Manezinho",
-        "video": "artist_1_video.mp4"
+        "name": "José Manezinho",
+        "date": "Segunda-feira, 7 de Abril",
+        "description": "Venha participar do show de Jazz do José Manezinho",
+        "video": "https://videos.pexels.com/video-files/852360/852360-hd_1280_720_30fps.mp4"
+    },
+    {
+        "name": "Joseph Americano",
+        "date": "Terça-feira, 8 de Abril",
+        "description": "Venha participar do show de Rock do Joseph Americano",
+        "video": "https://www.pexels.com/video/guitarist-playing-a-guitar-854923/"
     }
 ]
