@@ -13,6 +13,12 @@ const menuImage = require('../assets/images/menu_sample_img.png')
 module.exports = function MenuItem({ route }) {
     const item = route.params;
 
+    // Formating the price atribute
+    const formatPrice = new Intl.NumberFormat('pt-BR', {
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 2
+    }).format(item.price);
+
     return (
         <ScrollView>
           <Center>
@@ -25,9 +31,13 @@ module.exports = function MenuItem({ route }) {
                     />
                 </Center>
                 <Text style={styles.contactText}>{item.description}</Text>
-                <Text style={styles.contactText}>{item.quantity}</Text>
-                <Text style={styles.contactText}>{item.ingredients}</Text>
-                <Text style={styles.price}>{item.price}</Text>
+                <Text style={styles.contactText}>Quantidade: {item.quantity}</Text>
+                <Text style={styles.contactText}>Ingredientes: {item.ingredients.join(', ')}</Text>
+                <Text style={styles.price}>Preço: R${formatPrice}</Text>
+                <Button
+                  title='Adicionar ao carrinho'
+                  color='#2ee860'
+                />
             </Container>
           </Center>
         </ScrollView>
