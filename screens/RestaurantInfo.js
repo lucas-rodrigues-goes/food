@@ -1,9 +1,11 @@
 import * as React from 'react';
 
+
 // Components
-const { Text, Image, ScrollView, Linking, View, TouchableOpacity } = require('react-native');
+const { Text, Image, ScrollView, Linking, View, TouchableOpacity, Dimensions } = require('react-native');
 const { Center, Container } = require('../components/structure');
 const { Button, IconButton } = require('../components/buttons')
+const { Card } = require('@rneui/themed');
 const styles = require('../style/general');
 
 // Assets
@@ -20,10 +22,6 @@ module.exports = function RestaurantInfo({ route, navigation }) {
     const restaurant = route.params;
 
 	// Button Handlers
-	const handleOpenMap = () => {
-		const url = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(contactInfo.address)}`
-		Linking.openURL(url)
-	}
 	const handleCall = () => Linking.openURL(`tel:${restaurant.phone}`)
 	const handleWhatsApp = () => Linking.openURL(`https://wa.me/${restaurant.whatsapp}`)
 	const handleEmail = () => Linking.openURL(`mailto:${restaurant.email}?subject=Contato%20Pátio`)
@@ -36,17 +34,18 @@ module.exports = function RestaurantInfo({ route, navigation }) {
 
 		// Add element to list
 		menuElements.push(
-				<Container>
-					<TouchableOpacity style={{ flexDirection: 'row', justifyContent: 'space-between'}} onPress={navigate}>
-						<Image
+            <TouchableOpacity key={menuItem.name} onPress={navigate}>
+                <Card containerStyle={{ width: Dimensions.get('window').width * 0.8, margin: 10 }}>
+                    <Card.Title>{menuItem.name}</Card.Title>
+                    <Card.Divider />
+                    <Image
                             style={styles.icon}
 							source={menuImage}
 						/>
                         <Text style={styles.contactText}>{menuItem.name}</Text>
                         <Text style={styles.price}>{menuItem.price}</Text>
-					</TouchableOpacity>
-				</Container>
-
+                </Card>
+            </TouchableOpacity>
 		)
 	}
 
@@ -101,7 +100,13 @@ module.exports = function RestaurantInfo({ route, navigation }) {
 				</Center>
 			</Container>
             <Container title={"Cardápio"}>
-                {menuElements}
+                <ScrollView
+                    horizontal={true}
+                    showsHorizontalScrollIndicator={false}
+                    style={{ paddingVertical: 10 }}
+                >
+                    {menuElements}
+                </ScrollView>
             </Container>
 		  </Center>
 		</ScrollView>
