@@ -13,6 +13,7 @@ const menuImage = require('../assets/images/menu_sample_img.png');
 function MenuItem({ route }) {
   	const item = route.params;
 
+	// Ajusta o formato do preço
 	const formatPrice = new Intl.NumberFormat('pt-BR', {
 		minimumFractionDigits: 2,
 		maximumFractionDigits: 2,

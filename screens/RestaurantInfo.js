@@ -32,18 +32,24 @@ module.exports = function RestaurantInfo({ route, navigation }) {
 		// Handle element navigation
 		const navigate = () => navigation.navigate('Item do Cardápio', menuItem)
 
+        // Adjusts format of price
+        const formatPrice = new Intl.NumberFormat('pt-BR', {
+            minimumFractionDigits: 2,
+            maximumFractionDigits: 2,
+        }).format(menuItem.price);
+
 		// Add element to list
 		menuElements.push(
             <TouchableOpacity key={menuItem.name} onPress={navigate}>
-                <Card containerStyle={{ width: Dimensions.get('window').width * 0.8, margin: 10 }}>
-                    <Card.Title>{menuItem.name}</Card.Title>
+                <Card containerStyle={{ width: Dimensions.get('window').width * 0.5, margin: 10, alignItems:'center'}}>
+                    <Card.Title style={{textAlign: 'center'}}>{menuItem.name} </Card.Title>
                     <Card.Divider />
                     <Image
-                            style={styles.icon}
+                            style={styles.foodIcon}
 							source={menuImage}
 						/>
                         <Text style={styles.contactText}>{menuItem.name}</Text>
-                        <Text style={styles.price}>{menuItem.price}</Text>
+                        <Text style={styles.price}>{formatPrice}</Text>
                 </Card>
             </TouchableOpacity>
 		)

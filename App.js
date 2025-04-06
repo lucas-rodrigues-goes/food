@@ -10,10 +10,13 @@ const Events = require('./screens/Events');
 const Restaurants = require('./screens/Restaurants');
 const RestaurantInfo = require('./screens/RestaurantInfo');
 const MenuItem = require('./screens/menuItem');
+const SplashScreen = require('./screens/SplashScreen');
 
 // Components
-const { Navigator, Screen } = require('@react-navigation/drawer').createDrawerNavigator()
+const { createDrawerNavigator } = require('@react-navigation/drawer');
 const { NavigationContainer } = require('@react-navigation/native')
+
+const Drawer = createDrawerNavigator();
 
 // Options
 const hidden = {drawerItemStyle: {display: 'none'}}
@@ -41,22 +44,23 @@ const CartIcon = ({ navigation }) => {
 export default function App() {
   return (
     <NavigationContainer>
-      <Navigator 
-        initialRouteName="Inicio"
+      <Drawer.Navigator 
+        initialRouteName="Splash" 
         screenOptions={({ navigation }) => ({
+          headerShown: true,
           headerRight: () => <CartIcon navigation={navigation} />,
-          // Other default screen options
         })}
       >
-        <Screen name="Inicio" component={Home}/>
-        <Screen name='Eventos' component={Events}/>
-        <Screen name='Restaurantes' component={Restaurants}/>
+        <Drawer.Screen name="Splash" component={SplashScreen} options={{ headerShown: false }} />
+        <Drawer.Screen name="Inicio" component={Home}/>
+        <Drawer.Screen name='Eventos' component={Events}/>
+        <Drawer.Screen name='Restaurantes' component={Restaurants}/>
         
         {/* Hidden screen */}
-        <Screen name='Informações do Restaurante' component={RestaurantInfo} options={hidden}/>
-        <Screen name='Item do Cardápio' component={MenuItem} options={hidden} />
-		<Screen name='Carrinho de Compras' component={Events} options={hidden} />
-      </Navigator>
+        <Drawer.Screen name='Informações do Restaurante' component={RestaurantInfo} options={hidden}/>
+        <Drawer.Screen name='Item do Cardápio' component={MenuItem} options={hidden} />
+		    <Drawer.Screen name='Carrinho de Compras' component={Events} options={hidden} />
+      </Drawer.Navigator>
     </NavigationContainer>
   );
 }

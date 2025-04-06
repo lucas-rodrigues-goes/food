@@ -39,4 +39,21 @@ module.exports = StyleSheet.create({
     width: 30,
     height: 30,
   },
+  foodIcon: {
+    width: 70,
+    height: 70,
+    margin: 0,
+    alignSelf: 'center',
+  },
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#ffffff',
+  },
+  logoSplash: {
+    width: 200,
+    height: 200,
+    resizeMode: 'contain',
+  }
 });
