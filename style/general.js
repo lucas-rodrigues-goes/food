@@ -55,5 +55,26 @@ module.exports = StyleSheet.create({
     width: 200,
     height: 200,
     resizeMode: 'contain',
-  }
+  },
+  cartIcon: {
+    marginRight: 15,
+    position: 'relative',
+  },
+  badge: {
+    position: 'absolute',
+    right: -8,
+    top: -5,
+    backgroundColor: 'red',
+    borderRadius: 9,
+    minWidth: 18,
+    height: 18,
+    justifyContent: 'center',
+    alignItems: 'center',
+    paddingHorizontal: 4,
+  },
+  badgeText: {
+    color: 'white',
+    fontSize: 12,
+    fontWeight: 'bold',
+  },
 });

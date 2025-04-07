@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import { View, TouchableOpacity, StyleSheet, Text } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { getItems } from './modules/Cart';
+import styles from './style/general';
 
 // Screens
 import Home from './screens/Home';
@@ -79,7 +80,7 @@ export default function App() {
         <Drawer.Screen 
           name="Splash" 
           component={SplashScreen} 
-          options={{ headerShown: false }} 
+          options={{ headerShown: false, ...hidden }} 
         />
         <Drawer.Screen name="Inicio" component={Home} />
         <Drawer.Screen name="Eventos" component={Events} />
@@ -103,27 +104,3 @@ export default function App() {
     </NavigationContainer>
   );
 }
-
-const styles = StyleSheet.create({
-  cartIcon: {
-    marginRight: 15,
-    position: 'relative',
-  },
-  badge: {
-    position: 'absolute',
-    right: -8,
-    top: -5,
-    backgroundColor: 'red',
-    borderRadius: 9,
-    minWidth: 18,
-    height: 18,
-    justifyContent: 'center',
-    alignItems: 'center',
-    paddingHorizontal: 4,
-  },
-  badgeText: {
-    color: 'white',
-    fontSize: 12,
-    fontWeight: 'bold',
-  },
-});

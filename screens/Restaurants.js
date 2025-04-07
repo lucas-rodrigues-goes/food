@@ -8,7 +8,6 @@ const styles = require('../style/general');
 
 // Assets
 const restaurantsInfo = require('../assets/data/restaurants_info.json')
-const logoImage = require('../assets/images/logo_food_hall.png')
 
 // Output
 module.exports = function Restaurants({ navigation }) {
@@ -20,7 +19,7 @@ module.exports = function Restaurants({ navigation }) {
 
 		// Add element to list
 		restaurantElements.push(
-			<TouchableOpacity style={{width: '100%'}} onPress={navigate}>
+			<TouchableOpacity style={{width: '100%'}} onPress={navigate} key={restaurant.name}>
 				<Container title={restaurant.name}>
 					{/* <Center>
 						<Image
@@ -35,11 +34,6 @@ module.exports = function Restaurants({ navigation }) {
 	return (
 		<ScrollView>
 		  <Center>
-			{/* Logo */}
-			<Image
-			  style={styles.logo}
-			  source={logoImage} 
-			/>
 	
 			{/* Lista de restaurantes */}
             {restaurantElements}
