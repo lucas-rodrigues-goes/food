@@ -1,36 +1,27 @@
-import * as React from 'react';
-import { Text, Image, ScrollView, Linking, Platform, View } from 'react-native';
-import Video from 'react-native-video';
-import { Center, Container } from '../components/structure';
-import { Button } from '../components/buttons';
-import styles from '../style/general';
-
+const React = require('react');
+const { Text, ScrollView, Platform, View } = require('react-native');
+const { Center, Container } = require('../components/structure');
+const styles = require('../style/general');
 const events_info = require('../assets/data/events_info.json');
 
-export default function Events({ navigation }) {
+// Use expo-av for all platforms (mobile + web)
+const { Video } = require('expo-av');
+
+function Events({ navigation }) {
   const eventElements = events_info.map((evento) => (
     <Container key={evento.name} title={`${evento.name} - ${evento.date}`}>
       <Text style={styles.contactText}>{evento.description}</Text>
       <Center>
-        {Platform.OS === 'web' ? (
-          <video 
-            src={evento.video} 
-            controls 
-            style={styles.video} 
+        <View style={styles.videoContainer}>
+          <Video
+            source={{ uri: evento.video }}
+            style={styles.video}
+            useNativeControls
+            resizeMode="contain"
+            isLooping={false}
+            onError={(e) => console.log('Video Error:', e)}
           />
-        ) : (
-          <View style={styles.videoContainer}>
-            <Video
-              source={{ uri: evento.video }}
-              style={styles.video}
-              controls
-              paused={false}
-              repeat={false}
-              resizeMode="contain"
-              onError={(error) => console.log('Video Error:', error)}
-            />
-          </View>
-        )}
+        </View>
       </Center>
     </Container>
   ));
@@ -42,4 +33,6 @@ export default function Events({ navigation }) {
       </Center>
     </ScrollView>
   );
-};
+}
+
+module.exports = Events;
