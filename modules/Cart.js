@@ -24,7 +24,7 @@ async function addItem(item) {
 	const cart = await getItems();
 	const updatedCart = [...cart, item];
 	await save(updatedCart);
-	alert(`Item adicionado ao carrinho!\n\n` + updatedCart);
+	alert(`Item adicionado ao carrinho!`);
 }
 
 module.exports = { save, getItems, addItem }
