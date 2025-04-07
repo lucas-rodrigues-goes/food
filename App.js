@@ -12,6 +12,7 @@ import Restaurants from './screens/Restaurants';
 import RestaurantInfo from './screens/RestaurantInfo';
 import MenuItem from './screens/menuItem';
 import SplashScreen from './screens/SplashScreen';
+import CartContent from './screens/CartContent';
 
 // Navigation
 import { createDrawerNavigator } from '@react-navigation/drawer';
@@ -97,7 +98,7 @@ export default function App() {
         />
         <Drawer.Screen 
           name="Carrinho de Compras" 
-          component={Events} 
+          component={CartContent} 
           options={hidden} 
         />
       </Drawer.Navigator>
