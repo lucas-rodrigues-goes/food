@@ -1,46 +1,71 @@
 import * as React from 'react';
-
-const { View, TouchableOpacity, StyleSheet, Text } = require('react-native');
-const { Ionicons } = require ('@expo/vector-icons');
-const {ShoppingCart} = require('./modules/Cart');
+import { useEffect, useState } from 'react';
+import { View, TouchableOpacity, StyleSheet, Text } from 'react-native';
+import { Ionicons } from '@expo/vector-icons';
+import { getItems } from './modules/Cart';
 
 // Screens
-const Home = require('./screens/Home');
-const Events = require('./screens/Events');
-const Restaurants = require('./screens/Restaurants');
-const RestaurantInfo = require('./screens/RestaurantInfo');
-const MenuItem = require('./screens/menuItem');
-const SplashScreen = require('./screens/SplashScreen');
+import Home from './screens/Home';
+import Events from './screens/Events';
+import Restaurants from './screens/Restaurants';
+import RestaurantInfo from './screens/RestaurantInfo';
+import MenuItem from './screens/menuItem';
+import SplashScreen from './screens/SplashScreen';
 
-// Components
-const { createDrawerNavigator } = require('@react-navigation/drawer');
-const { NavigationContainer } = require('@react-navigation/native')
+// Navigation
+import { createDrawerNavigator } from '@react-navigation/drawer';
+import { NavigationContainer } from '@react-navigation/native';
 
 const Drawer = createDrawerNavigator();
 
 // Options
-const hidden = {drawerItemStyle: {display: 'none'}}
+const hidden = { drawerItemStyle: { display: 'none' } };
 
 // Cart icon component for the header
 const CartIcon = ({ navigation }) => {
+  const [cartCount, setCartCount] = useState(0);
+
+  const updateCartCount = async () => {
+    try {
+      const cartItems = await getItems();
+      setCartCount(cartItems.length);
+    } catch (error) {
+      console.error('Error loading cart count:', error);
+      setCartCount(0);
+    }
+  };
+
+  useEffect(() => {
+    // Initial load
+    updateCartCount();
+
+    // Refresh when screen is focused
+    const unsubscribe = navigation.addListener('focus', updateCartCount);
+
+    // Periodic check every 1.5 seconds
+    const interval = setInterval(updateCartCount, 1500);
+
+    return () => {
+      unsubscribe();
+      clearInterval(interval);
+    };
+  }, [navigation]);
+
   return (
     <TouchableOpacity 
       style={styles.cartIcon} 
-      onPress={() => {
-        // Navigate to your cart screen when the icon is pressed
-        navigation.navigate('Carrinho de Compras')
-      }}
+      onPress={() => navigation.navigate('Carrinho de Compras')}
     >
       <Ionicons name="cart" size={24} color="black" />
-      {/* Optional: Add a badge for cart items count */}
-      <View style={styles.badge}>
-        <Text style={styles.badgeText}>3</Text>
-      </View>
+      {cartCount > 0 && (
+        <View style={styles.badge}>
+          <Text style={styles.badgeText}>{cartCount}</Text>
+        </View>
+      )}
     </TouchableOpacity>
   );
 };
 
-// Output
 export default function App() {
   return (
     <NavigationContainer>
@@ -51,15 +76,29 @@ export default function App() {
           headerRight: () => <CartIcon navigation={navigation} />,
         })}
       >
-        <Drawer.Screen name="Splash" component={SplashScreen} options={{ headerShown: false }} />
-        <Drawer.Screen name="Inicio" component={Home}/>
-        <Drawer.Screen name='Eventos' component={Events}/>
-        <Drawer.Screen name='Restaurantes' component={Restaurants}/>
-        
-        {/* Hidden screen */}
-        <Drawer.Screen name='Informações do Restaurante' component={RestaurantInfo} options={hidden}/>
-        <Drawer.Screen name='Item do Cardápio' component={MenuItem} options={hidden} />
-		    <Drawer.Screen name='Carrinho de Compras' component={Events} options={hidden} />
+        <Drawer.Screen 
+          name="Splash" 
+          component={SplashScreen} 
+          options={{ headerShown: false }} 
+        />
+        <Drawer.Screen name="Inicio" component={Home} />
+        <Drawer.Screen name="Eventos" component={Events} />
+        <Drawer.Screen name="Restaurantes" component={Restaurants} />
+        <Drawer.Screen 
+          name="Informações do Restaurante" 
+          component={RestaurantInfo} 
+          options={hidden} 
+        />
+        <Drawer.Screen 
+          name="Item do Cardápio" 
+          component={MenuItem} 
+          options={hidden} 
+        />
+        <Drawer.Screen 
+          name="Carrinho de Compras" 
+          component={Events} 
+          options={hidden} 
+        />
       </Drawer.Navigator>
     </NavigationContainer>
   );
@@ -68,21 +107,23 @@ export default function App() {
 const styles = StyleSheet.create({
   cartIcon: {
     marginRight: 15,
+    position: 'relative',
   },
   badge: {
     position: 'absolute',
-    right: -6,
-    top: -3,
+    right: -8,
+    top: -5,
     backgroundColor: 'red',
-    borderRadius: 6,
-    width: 12,
-    height: 12,
+    borderRadius: 9,
+    minWidth: 18,
+    height: 18,
     justifyContent: 'center',
     alignItems: 'center',
+    paddingHorizontal: 4,
   },
   badgeText: {
     color: 'white',
-    fontSize: 10,
+    fontSize: 12,
     fontWeight: 'bold',
   },
 });

@@ -1,49 +1,45 @@
 import * as React from 'react';
+import { Text, Image, ScrollView, Linking, Platform, View } from 'react-native';
+import Video from 'react-native-video';
+import { Center, Container } from '../components/structure';
+import { Button } from '../components/buttons';
+import styles from '../style/general';
 
-// Components
-const { Text, Image, ScrollView, Linking, Platform } = require('react-native');
-const { Video } = require('react-native-video');
-const { Center, Container } = require('../components/structure');
-const { Button } = require('../components/buttons')
-const styles = require('../style/general');
+const events_info = require('../assets/data/events_info.json');
 
-// Assets
-const events_info = require('../assets/data/events_info.json')
+export default function Events({ navigation }) {
+  const eventElements = events_info.map((evento) => (
+    <Container key={evento.name} title={`${evento.name} - ${evento.date}`}>
+      <Text style={styles.contactText}>{evento.description}</Text>
+      <Center>
+        {Platform.OS === 'web' ? (
+          <video 
+            src={evento.video} 
+            controls 
+            style={styles.video} 
+          />
+        ) : (
+          <View style={styles.videoContainer}>
+            <Video
+              source={{ uri: evento.video }}
+              style={styles.video}
+              controls
+              paused={false}
+              repeat={false}
+              resizeMode="contain"
+              onError={(error) => console.log('Video Error:', error)}
+            />
+          </View>
+        )}
+      </Center>
+    </Container>
+  ));
 
-// Output
-module.exports = function Events({ navigation }) {
-	// Criar lista de eventos
-	const eventElements = [];
-	for (const evento of events_info) {
-		eventElements.push(
-			<Container key={evento.name} title={evento.name + " - " + evento.date}>
-				<Text style={styles.contactText}>{evento.description}</Text>
-				<Center>
-					{Platform.OS === 'web' ? (
-						<video src={evento.video} controls style={styles.video} />
-					) : (
-						<Video 
-							source={evento.video} 
-							paused={false} 
-							style={styles.video} 
-							repeat={false} 
-							onError={(e) => console.log(e)} 
-						/>
-					)}
-				</Center>
-			</Container>
-		);
-	}
-
-
-	return (
-		<ScrollView>
-		  <Center>
-
-			{/* Lista de Eventos */}
-			{eventElements}
-
-		  </Center>
-		</ScrollView>
-	  );
+  return (
+    <ScrollView>
+      <Center>
+        {eventElements}
+      </Center>
+    </ScrollView>
+  );
 };
