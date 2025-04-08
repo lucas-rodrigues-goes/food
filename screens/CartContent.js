@@ -1,168 +1,142 @@
-// screens/CartScreen.js
-import React, { useState, useEffect } from 'react';
-import { View, Text, StyleSheet, FlatList, TouchableOpacity, Image } from 'react-native';
-import { Ionicons } from '@expo/vector-icons';
-import { getItems, removeItem, buyItems } from '../modules/Cart';
-import styles from '../style/general';
+import * as React from 'react';
+
+// Async
+const { useState, useEffect } = React;
+const { getItems, removeItem, buyItems } = require('../modules/Cart');
+
+// Components
+const { Container, Center } = require('../components/structure')
+const { Button } = require('../components/buttons');
+const { View, Text, StyleSheet, TouchableOpacity } = require('react-native');
+
+// External
+const { Ionicons } = require('@expo/vector-icons');
 
 const CartScreen = ({ navigation }) => {
-  const [cartItems, setCartItems] = useState([]);
-  const [total, setTotal] = useState(0);
+	// Dynamic variables
+	const [total, setTotal] = useState(0);
+	const [cartItems, setCartItems] = useState([]);
 
-  const loadCart = async () => {
-    try {
-      const items = await getItems();
-      setCartItems(items);
-      
-      // Calculate total
-      let total = 0
-      for (const item of items) { total += item.price}
+	// Create cart item element
+	const cartItem = ({item, index}) => {
+		// Style
+		const style = StyleSheet.create({
+			container: {
+				flexDirection: 'row',
+				justifyContent: 'space-between',
+				backgroundColor: '#fff',
+				borderRadius: 8,
+				padding: 15,
+				marginBottom: 10,
+				elevation: 2,
+			},
+			info: {
+				flex: 1,
+			},
+			name: {
+				fontSize: 16,
+				fontWeight: 'bold',
+				marginBottom: 5,
+				color: '#333',
+			},
+			description: {
+				fontSize: 14,
+				color: '#666',
+				marginBottom: 5,
+			},
+			quantity: {
+				fontSize: 12,
+				color: '#888',
+				marginBottom: 5,
+			},
+			price: {
+				fontSize: 16,
+				fontWeight: 'bold',
+				color: '#e53935',
+			},
+			remove: {
+				padding: 5,
+				alignSelf: 'flex-start',
+			},
+		})
 
-      setTotal(total);
-    } catch (error) {
-      console.error('Error loading cart:', error);
-    }
-  };
+		// Output
+		return (
+			<Container style={style.container} key={index}>
+				<View style={style.info}>
+					<Text style={style.name}>{item.name}</Text>
+					<Text style={style.description}>{item.description}</Text>
+					<Text style={style.quantity}>Quantidade: {item.quantity}</Text>
+					<Text style={style.price}>R$ {item.price.toFixed(2)}</Text>
+				</View>
+				<TouchableOpacity
+					style={style.remove}
+					onPress={() => removeItem(index, item.name)}
+				>
+					<Ionicons name="trash-outline" size={20} color="#e53935" />
+				</TouchableOpacity>
+			</Container>
+		)
+	}
 
-  useEffect(() => {
-    // Load cart when screen focuses
-    const unsubscribe = navigation.addListener('focus', loadCart);
-    return unsubscribe;
-  }, [navigation]);
+	// Updates the page
+	const updatePage = async () => {
+		// Gets current items
+		const items = await getItems();
+		
+		// Sums total price
+		let total = 0;
+		for (const item of items) total += item.price
+		setTotal(total);
 
-  const handleRemoveItem = async (itemId) => {
-    try {
-      await removeItem(itemId);
-      loadCart(); // Refresh the cart after removal
-    } catch (error) {
-      console.error('Error removing item:', error);
-    }
-  };
+		// Creates cart items list
+		const tempCartItems = [];
+		for (let index = 0; index < items.length; index++) {
+			const item = items[index];
+			tempCartItems.push(cartItem({item, index}));
+		}
+		setCartItems(tempCartItems);
+	};
 
-  const renderItem = ({ item }) => (
-    <View style={cartStyles.itemContainer}>
-      <View style={cartStyles.itemInfo}>
-        <Text style={cartStyles.itemName}>{item.name}</Text>
-        <Text style={cartStyles.itemDescription}>{item.description}</Text>
-        <Text style={cartStyles.itemQuantity}>Quantidade: {item.quantity}</Text>
-        <Text style={cartStyles.itemPrice}>R$ {item.price.toFixed(2)}</Text>
-      </View>
-      <TouchableOpacity 
-        style={cartStyles.removeButton}
-        onPress={() => handleRemoveItem(item.name)}
-      >
-        <Ionicons name="trash-outline" size={20} color="#e53935" />
-      </TouchableOpacity>
-    </View>
-  );
+	// Calls page update on window load
+	useEffect(() => {
+		const unsubscribe = navigation.addListener('focus', updatePage);
+		return unsubscribe;
+	}, [navigation]);
 
-  return (
-    <View style={cartStyles.container}>
-      {cartItems.length === 0 ? (
-        <View style={cartStyles.emptyCart}>
-          <Ionicons name="cart-outline" size={50} color="#ccc" />
-          <Text style={cartStyles.emptyText}>Seu carrinho está vazio</Text>
-        </View>
-      ) : (
-        <>
-          <FlatList
-            data={cartItems}
-            renderItem={renderItem}
-            // key={item.name}
-            contentContainerStyle={cartStyles.list}
-          />
-          <View style={cartStyles.summary}>
-            <Text style={cartStyles.totalText}>Total: R$ {total.toFixed(2)}</Text>
-            <TouchableOpacity 
-              style={[styles.button, cartStyles.checkoutButton]}
-              onPress={async () => {
-                await buyItems()
-                loadCart()
-              }}
-            >
-              <Text style={styles.buttonText}>Finalizar Compra</Text>
-            </TouchableOpacity>
-          </View>
-        </>
-      )}
-    </View>
-  );
+	// Output
+	return (
+		<Container style={{flex: 1, backgroundColor: "rgba(0,0,0,0)"}}>
+			{cartItems.length === 0 
+				? // If cart is empty
+					<>
+					<Center style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
+						<Ionicons name="cart-outline" size={50} color="#ccc" />
+						<Text style={{fontSize: 18, color: '#999', marginTop: 10}}>Seu carrinho está vazio</Text>
+					</Center>
+					</>
+				: // Else
+					<>
+					{/* Item List */}
+					<View style={{ flex: 1 }}>
+						<View style={{flex: 1, padding: 15}}>
+							{cartItems}
+						</View>
+					</View>
+					{/* Summary */}
+					<View style={{borderTopWidth: 1, borderTopColor: '#eee', padding: 20, backgroundColor: '#fff'}}>
+						<Text style={{fontSize: 18, fontWeight: 'bold', textAlign: 'right', marginBottom: 15}}>
+							Total: R$ {total.toFixed(2)}
+						</Text>
+						<Button
+							title="Finalizar Compra"
+							onPress={async () => {await buyItems(); updatePage();}}
+						/>
+					</View>
+					</>
+			}
+		</Container>
+	);
 };
 
-const cartStyles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#f5f5f5',
-  },
-  list: {
-    padding: 15,
-  },
-  itemContainer: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    backgroundColor: '#fff',
-    borderRadius: 8,
-    padding: 15,
-    marginBottom: 10,
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 1 },
-    shadowOpacity: 0.1,
-    shadowRadius: 2,
-    elevation: 2,
-  },
-  itemInfo: {
-    flex: 1,
-  },
-  itemName: {
-    fontSize: 16,
-    fontWeight: 'bold',
-    marginBottom: 5,
-    color: '#333',
-  },
-  itemDescription: {
-    fontSize: 14,
-    color: '#666',
-    marginBottom: 5,
-  },
-  itemQuantity: {
-    fontSize: 12,
-    color: '#888',
-    marginBottom: 5,
-  },
-  itemPrice: {
-    fontSize: 16,
-    fontWeight: 'bold',
-    color: '#e53935',
-  },
-  removeButton: {
-    padding: 5,
-    alignSelf: 'flex-start',
-  },
-  summary: {
-    borderTopWidth: 1,
-    borderTopColor: '#eee',
-    padding: 20,
-    backgroundColor: '#fff',
-  },
-  totalText: {
-    fontSize: 18,
-    fontWeight: 'bold',
-    textAlign: 'right',
-    marginBottom: 15,
-  },
-  checkoutButton: {
-    backgroundColor: '#e53935',
-  },
-  emptyCart: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  emptyText: {
-    fontSize: 18,
-    color: '#999',
-    marginTop: 10,
-  },
-});
-
-export default CartScreen;
+module.exports = CartScreen;

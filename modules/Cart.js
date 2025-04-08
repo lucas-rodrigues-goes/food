@@ -20,15 +20,9 @@ async function getItems() {
 	}
 }
 
-async function removeItem(item_name) {
+async function removeItem(i, item_name) {
 	const cart = await getItems();
-	for (let i = 0; i < cart.length; i++) {
-		const item = cart[i]
-		if (item.name == item_name) {
-			cart.splice(i, 1)
-			break
-		}
-	}
+	cart.splice(i, 1)
 	await save(cart)
 
 	alert(item_name + " removed.")
@@ -41,9 +35,13 @@ async function addItem(item) {
 	alert(`Item adicionado ao carrinho!`);
 }
 
-async function buyItems() {
+async function clearItems() {
 	await save([])
+}
+
+async function buyItems() {
+	await clearItems()
 	alert(`Compra finalizada com sucesso!`);
 }
 
-module.exports = { save, getItems, addItem, removeItem, buyItems }
+module.exports = { getItems, addItem, removeItem, clearItems, buyItems }
