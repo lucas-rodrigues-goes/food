@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import { View, Text, StyleSheet, FlatList, TouchableOpacity, Image } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
-import { getItems, removeItem } from '../modules/Cart';
+import { getItems, removeItem, buyItems } from '../modules/Cart';
 import styles from '../style/general';
 
 const CartScreen = ({ navigation }) => {
@@ -49,7 +49,7 @@ const CartScreen = ({ navigation }) => {
       </View>
       <TouchableOpacity 
         style={cartStyles.removeButton}
-        onPress={() => handleRemoveItem(item.id)}
+        onPress={() => handleRemoveItem(item.name)}
       >
         <Ionicons name="trash-outline" size={20} color="#e53935" />
       </TouchableOpacity>
@@ -75,7 +75,10 @@ const CartScreen = ({ navigation }) => {
             <Text style={cartStyles.totalText}>Total: R$ {total.toFixed(2)}</Text>
             <TouchableOpacity 
               style={[styles.button, cartStyles.checkoutButton]}
-              onPress={() => navigation.navigate('Checkout')}
+              onPress={async () => {
+                await buyItems()
+                loadCart()
+              }}
             >
               <Text style={styles.buttonText}>Finalizar Compra</Text>
             </TouchableOpacity>
