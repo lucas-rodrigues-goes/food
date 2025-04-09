@@ -14,7 +14,7 @@ const styles = require('../style/general');
 const CartItem = ({item, index, navigation}) => {
 
 	// Navigation to item page
-	const navigate = () => navigation.navigate('Item do Cardápio', item)
+	const navigate = () => navigation.navigate('Item do Cardápio', [item, undefined])
 
 	// Output
 	return (
@@ -24,7 +24,7 @@ const CartItem = ({item, index, navigation}) => {
 					<Text style={styles.name}>{item.name}</Text>
 					<Text style={styles.description}>{item.description}</Text>
 					<Text style={styles.quantity}>Quantidade: {item.quantity}</Text>
-					<Text style={styles.cartPrice}>R$ {item.price.toFixed(2).replace(".", ",")}</Text>
+					<Text style={styles.cartPrice}>R${item.price.toFixed(2).replace(".", ",")}</Text>
 				</View>
 				<TouchableOpacity
 					style={styles.remove}
@@ -85,14 +85,14 @@ const CartScreen = ({ navigation }) => {
 					<>
 					{/* Item List */}
 					<View style={{ flex: 1 }}>
-						<View style={{flex: 1, padding: 15}}>
+						<View style={{flex: 1, padding: 15, paddingTop: 0}}>
 							{CartItems}
 						</View>
 					</View>
 					{/* Summary */}
 					<View style={{borderTopWidth: 1, borderTopColor: '#eee', padding: 20, backgroundColor: '#fff'}}>
 						<Text style={{fontSize: 18, fontWeight: 'bold', textAlign: 'right', marginRight: 10, marginBottom: 15}}>
-							Total: R$ {total.toFixed(2).replace(".", ",")}
+							Total: R${total.toFixed(2).replace(".", ",")}
 						</Text>
 						<Button
 							title="Finalizar Compra"

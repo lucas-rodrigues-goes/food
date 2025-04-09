@@ -19,12 +19,6 @@ module.exports = StyleSheet.create({
     marginBottom: 8,
     color: '#666',
   },
-  price: {
-    fontSize: 14,
-    marginBottom: 8,
-    color: '#666',
-    fontWeight: 'bold',
-  },
   video: {
     height: 160,
     width: 280,
@@ -39,8 +33,8 @@ module.exports = StyleSheet.create({
     height: 30,
   },
   foodIcon: {
-    width: 70,
-    height: 70,
+    width: 50,
+    height: 50,
     margin: 0,
     alignSelf: 'center',
   },

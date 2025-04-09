@@ -1,6 +1,5 @@
 import * as React from 'react';
 
-
 // Components
 const { Text, Image, ScrollView, Linking, View, TouchableOpacity, Dimensions } = require('react-native');
 const { Center, Container } = require('../components/structure');
@@ -17,6 +16,32 @@ const ifoodIcon = require('../assets/images/ifood_logo.png')
 const restaurantImage = require('../assets/images/boteco_sample_img.jpg')
 const menuImage = require('../assets/images/menu_sample_img.png')
 
+// Item Card
+const ItemCard = function ({menuItem, navigate}) {
+    return (
+        <TouchableOpacity onPress={navigate}>
+            <Card containerStyle={{ width: 120, margin: 5, borderRadius: 10, alignItems:'center'}}>
+                <Card.Title style={{
+                    textAlign: 'center', 
+                    color: '#444', 
+                    fontSize: 12,
+                }}>{menuItem.name} </Card.Title>
+                <Image
+                        style={styles.foodIcon}
+                        source={menuImage}
+                    />
+                <Text style={{
+                    fontSize: 12,
+                    marginTop: 10,
+                    textAlign: 'center',
+                    color: '#444',
+                    fontWeight: 'bold',
+                }}>R${menuItem.price.toFixed(2).replace(".", ",")}</Text>
+            </Card>
+        </TouchableOpacity>
+    )
+}
+
 // Output
 module.exports = function RestaurantInfo({ route, navigation }) {
     const restaurant = route.params;
@@ -25,29 +50,12 @@ module.exports = function RestaurantInfo({ route, navigation }) {
 	const menuElements = []
 	for (const menuItem of restaurant.menu) {
 		// Handle element navigation
-		const navigate = () => navigation.navigate('Item do Cardápio', menuItem)
-
-        // Adjusts format of price
-        const formatPrice = new Intl.NumberFormat('pt-BR', {
-            minimumFractionDigits: 2,
-            maximumFractionDigits: 2,
-        }).format(menuItem.price);
+		const navigate = () => navigation.navigate('Item do Cardápio', [menuItem, restaurant])
 
 		// Add element to list
 		menuElements.push(
-            <TouchableOpacity key={menuItem.name} onPress={navigate}>
-                <Card containerStyle={{ width: Dimensions.get('window').width * 0.5, margin: 10, alignItems:'center'}}>
-                    <Card.Title style={{textAlign: 'center'}}>{menuItem.name} </Card.Title>
-                    <Card.Divider />
-                    <Image
-                            style={styles.foodIcon}
-							source={menuImage}
-						/>
-                        <Text style={styles.contactText}>{menuItem.name}</Text>
-                        <Text style={styles.price}>{formatPrice}</Text>
-                </Card>
-            </TouchableOpacity>
-		)
+            <ItemCard key={menuItem.name} menuItem={menuItem} navigate={navigate}/>
+        )
 	}
 
 
