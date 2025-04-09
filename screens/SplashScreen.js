@@ -1,40 +1,34 @@
 import React, { useEffect } from 'react';
-
-// Components
-const { View, Image } = require('react-native');
+import { View, Image } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
+import styles from '../style/general';
 
 // Assets
 const logo = require('../assets/images/logo_food_hall.png');
 
 function SplashScreen ({ navigation }) {
-	// On window load
-	useEffect(() => {
-		const timer = setTimeout(() => {
-			navigation.navigate('Inicio');
-		}, 3000);
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      navigation.navigate('Inicio'); // Use o nome da rota como string
+    }, 3000);
 
-		return () => clearTimeout(timer);
-	}, [navigation]);
+    return () => clearTimeout(timer);
+  }, [navigation]);
 
-	// Output
-	return (
-		<View style={{ 
-			flex: 1, 
-			justifyContent: 'center', 
-			alignItems: 'center',
-			backgroundColor: '#fff'
-		}}>
-		<Image 
-			source={logo} 
-			style={{
-				width: 200,
-				height: 200,
-				resizeMode: 'contain',
-			}}
-			resizeMode="contain"
-		/>
-		</View>
-	);
+  return (
+    <View style={styles.splashContainer || { 
+      flex: 1, 
+      justifyContent: 'center', 
+      alignItems: 'center',
+      backgroundColor: '#fff'
+    }}>
+      <Image 
+        source={logo} 
+        style={styles.logoSplash}
+        resizeMode="contain"
+      />
+    </View>
+  );
 };
 
 module.exports = SplashScreen;
