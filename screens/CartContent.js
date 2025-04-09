@@ -10,40 +10,40 @@ const { Button } = require('../components/buttons');
 const { View, Text, StyleSheet, TouchableOpacity } = require('react-native');
 const styles = require('../style/general');
 
+// CartItem Component
+const CartItem = ({item, index, navigation}) => {
+
+	// Navigation to item page
+	const navigate = () => navigation.navigate('Item do Cardápio', item)
+
+	// Output
+	return (
+		<TouchableOpacity onPress={navigate} key={index}>
+			<Container style={styles.cartContainer}>
+				<View style={styles.info}>
+					<Text style={styles.name}>{item.name}</Text>
+					<Text style={styles.description}>{item.description}</Text>
+					<Text style={styles.quantity}>Quantidade: {item.quantity}</Text>
+					<Text style={styles.cartPrice}>R$ {item.price.toFixed(2)}</Text>
+				</View>
+				<TouchableOpacity
+					style={styles.remove}
+					onPress={() => removeItem(index, item.name)}
+				>
+					<Ionicons name="trash-outline" size={20} color="#04048a" />
+				</TouchableOpacity>
+			</Container>
+		</TouchableOpacity>
+	)
+}
+
 // External
 const { Ionicons } = require('@expo/vector-icons');
 
 const CartScreen = ({ navigation }) => {
 	// Dynamic variables
 	const [total, setTotal] = useState(0);
-	const [cartItems, setCartItems] = useState([]);
-
-	// Create cart item element
-	const cartItem = ({item, index}) => {
-
-		// Navigation to item page
-		const navigate = () => navigation.navigate('Item do Cardápio', item)
-
-		// Output
-		return (
-			<TouchableOpacity onPress={navigate} key={index}>
-				<Container style={styles.cartContainer}>
-					<View style={styles.info}>
-						<Text style={styles.name}>{item.name}</Text>
-						<Text style={styles.description}>{item.description}</Text>
-						<Text style={styles.quantity}>Quantidade: {item.quantity}</Text>
-						<Text style={styles.cartPrice}>R$ {item.price.toFixed(2)}</Text>
-					</View>
-					<TouchableOpacity
-						style={styles.remove}
-						onPress={() => removeItem(index, item.name)}
-					>
-						<Ionicons name="trash-outline" size={20} color="#04048a" />
-					</TouchableOpacity>
-				</Container>
-			</TouchableOpacity>
-		)
-	}
+	const [CartItems, setCartItems] = useState([]);
 
 	// Updates the page
 	const updatePage = async () => {
@@ -59,7 +59,7 @@ const CartScreen = ({ navigation }) => {
 		const tempCartItems = [];
 		for (let index = 0; index < items.length; index++) {
 			const item = items[index];
-			tempCartItems.push(cartItem({item, index}));
+			tempCartItems.push(CartItem({item, index, navigation}));
 		}
 		setCartItems(tempCartItems);
 	};
@@ -73,7 +73,7 @@ const CartScreen = ({ navigation }) => {
 	// Output
 	return (
 		<Container style={{flex: 1, backgroundColor: "rgba(0,0,0,0)"}}>
-			{cartItems.length === 0 
+			{CartItems.length === 0 
 				? // If cart is empty
 					<>
 					<Center style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
@@ -86,7 +86,7 @@ const CartScreen = ({ navigation }) => {
 					{/* Item List */}
 					<View style={{ flex: 1 }}>
 						<View style={{flex: 1, padding: 15}}>
-							{cartItems}
+							{CartItems}
 						</View>
 					</View>
 					{/* Summary */}
