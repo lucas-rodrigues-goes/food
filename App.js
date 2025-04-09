@@ -39,7 +39,7 @@ const CartIcon = ({ navigation }) => {
 			position: 'absolute',
 			right: -8,
 			top: -5,
-			backgroundColor: 'red',
+			backgroundColor: '#46c',
 			borderRadius: 9,
 			minWidth: 18,
 			height: 18,
@@ -57,7 +57,13 @@ const CartIcon = ({ navigation }) => {
 	// Update component
 	const updateCartCount = async () => {
 			const cartItems = await getItems();
-			setCartCount(cartItems.length);
+			console.log(cartItems)
+			let amount = 0;
+			for (const key in cartItems) {
+				const item = cartItems[key]
+				amount += item.quantity
+			}
+			setCartCount(amount);
 	};
 
 	// Initial load
@@ -68,7 +74,7 @@ const CartIcon = ({ navigation }) => {
 		const unsubscribe = navigation.addListener('focus', updateCartCount);
 
 		// Refresh polling for every 1.5s
-		const interval = setInterval(updateCartCount, 1500);
+		const interval = setInterval(updateCartCount, 200);
 
 		return () => {
 			unsubscribe();

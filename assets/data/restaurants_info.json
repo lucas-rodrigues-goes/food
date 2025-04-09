@@ -1,7 +1,7 @@
 [
     {
         "name": "Hamburgueria Brasil",
-        "description": "Food truck especializado em hambúrgueres artesanais, com pão caseiro e carne suculenta. No nosso cardápio, destaque para o 'Brasil Burger', com queijo da serra e bacon crocante.",
+        "description": "Food truck premiado com hambúrgueres 100% artesanais. Carnes maturadas, pães caseiros e combinações surpreendentes que conquistaram São Paulo e agora chegam ao food hall!",
         "phone": "+55 48 91104 9028",
         "whatsapp": "+55 48 91104 9028",
         "email": "contato@hamburgueriabrasil.com.br",
@@ -10,67 +10,152 @@
         "menu": [
             {
                 "name": "Brasil Burger",
-                "description": "Nosso carro-chefe! Um hambúrguer suculento de 180g com queijo da serra derretido, bacon caramelizado e nosso molho secreto que vai te surpreender. Servido no pão brioche artesanal levemente tostado.",
+                "description": "O campeão de vendas! Hambúrguer de costela 180g com queijo da serra derretido, cebola caramelizada e nosso molho de pimenta artesanal. Servido no pão brioche com gergelim tostado.",
                 "quantity": "300g",
-                "ingredients": ["Pão brioche", "Carne Angus 180g", "Queijo da serra", "Bacon", "Alface", "Tomate", "Molho especial"],
-                "price": 28.90
+                "ingredients": ["Pão brioche", "Costela 180g", "Queijo da serra", "Cebola caramelizada", "Molho de pimenta"],
+                "price": 32.90
             },
             {
                 "name": "Frango Crispy",
-                "description": "A crocância perfeita! Filé de frango empanado na hora com nossa farofa especial, queijo prato derretido e maionese de ervas frescas. Uma explosão de texturas em cada mordida!",
-                "quantity": "300g",
-                "ingredients": ["Pão australiano", "Filé de frango empanado", "Queijo prato", "Rúcula", "Maionese de ervas"],
-                "price": 22.50
+                "description": "Filé de frango empanado na farinha panka, crocante por fora e suculento por dentro. Acompanha maionese de ervas finas e pickles de pepino artesanais.",
+                "quantity": "280g",
+                "ingredients": ["Frango empanado", "Maionese de ervas", "Picles artesanal", "Pão australiano"],
+                "price": 26.50
+            },
+            {
+                "name": "Batata Turbinada",
+                "description": "Nossa batata rústica assada com alecrim, casca crocante e manteiga de ervas. Acompanha molho de queijo coalho e bacon crocante por cima.",
+                "quantity": "200g",
+                "ingredients": ["Batata rústica", "Alecrim", "Manteiga de ervas", "Molho de queijo", "Bacon"],
+                "price": 18.00
             }
         ]
     },
     {
-        "name": "Acarajé da Baiana",
-        "description": "O melhor acarajé do food hall! Feito na hora com tempero caseiro, vatapá cremoso e camarão seco. Uma experiência de autêntica culinária baiana em formato de food truck.",
-        "phone": "+55 48 91104 9028",
-        "whatsapp": "+55 48 91104 9028",
-        "email": "contato@acarajebaiana.com.br",
-        "facebook": "https://facebook.com/acarajebaiana",
-        "instagram": "https://instagram.com/acarajebaiana",
+        "name": "Acarajé da Bahia",
+        "description": "Autêntica culinária baiana em formato de food truck! Nossos acarajés são preparados diariamente com ingredientes frescos trazidos direto da Bahia.",
+        "phone": "+55 48 92215 6734",
+        "whatsapp": "+55 48 92215 6734",
+        "email": "contato@acarajedabahia.com.br",
+        "facebook": "https://facebook.com/acarajedabahia",
+        "instagram": "https://instagram.com/acarajedabahia",
         "menu": [
             {
-                "name": "Acarajé Tradicional",
-                "description": "Uma viagem à Bahia em cada mordida! Nosso bolinho de feijão-fradinho frito no azeite de dendê puro é recheado com vatapá cremoso, caruru caseiro e camarão seco selecionado.",
-                "quantity": "200g",
-                "ingredients": ["Feijão-fradinho", "Dendê", "Vatapá", "Caruru", "Camarão seco", "Pimenta"],
-                "price": 18.90
+                "name": "Acarajé Especial",
+                "description": "O tradicional bolinho de feijão-fradinho frito no dendê, recheado com vatapá cremoso, caruru, camarão seco e pimenta caseira. Uma explosão de sabores!",
+                "quantity": "250g",
+                "ingredients": ["Feijão-fradinho", "Dendê", "Vatapá", "Caruru", "Camarão seco"],
+                "price": 22.90
             },
             {
-                "name": "Abará",
-                "description": "A versão mais leve do acarajé, cozida no vapor com folha de bananeira. Mantém todo o sabor tradicional, mas com menos calorias. Perfeito para quem quer experimentar a culinária baiana de forma diferente!",
-                "quantity": "200g",
-                "ingredients": ["Feijão-fradinho", "Dendê", "Cebola", "Gengibre", "Camarão seco"],
-                "price": 16.50
+                "name": "Abará Light",
+                "description": "Versão cozida do acarajé, menos calórica mas igualmente saborosa. Preparada com folha de bananeira e servida com molho de pimenta de cheiro.",
+                "quantity": "220g",
+                "ingredients": ["Feijão-fradinho", "Camarão", "Pimenta de cheiro", "Folha de bananeira"],
+                "price": 19.50
+            },
+            {
+                "name": "Cocada de Forno",
+                "description": "Doce tradicional baiano com coco fresco ralado na hora e toques de canela. Crocante por fora e macia por dentro - perfeita para finalizar sua refeição!",
+                "quantity": "150g",
+                "ingredients": ["Coco fresco", "Açúcar mascavo", "Canela", "Leite condensado"],
+                "price": 8.90
             }
         ]
     },
     {
-        "name": "Boteco Zé Pilintra",
-        "description": "Food truck com vibe de boteco, servindo chopp gelado, pastéis crocantes e bolinhos de bacalhau. O point certo para um happy hour descontraído no food hall.",
-        "phone": "+55 48 91104 9028",
-        "whatsapp": "+55 48 91104 9028",
-        "email": "contato@zepilintraboteco.com.br",
-        "facebook": "https://facebook.com/zepilintraboteco",
-        "instagram": "https://instagram.com/zepilintraboteco",
+        "name": "Pizzaria Forno a Lenha",
+        "description": "Pizza artesanal assada em forno a lenha de verdade! Massa fermentada naturalmente por 48h e ingredientes premium selecionados.",
+        "phone": "+55 48 93376 4512",
+        "whatsapp": "+55 48 93376 4512",
+        "email": "contato@pizzariafornoalenha.com.br",
+        "facebook": "https://facebook.com/pizzariafornoalenha",
+        "instagram": "https://instagram.com/pizzariafornoalenha",
         "menu": [
             {
-                "name": "Pastel de Carne Seca",
-                "description": "Crocância que faz barulho! Nosso pastel é frito na hora com massa extra fina e recheio generoso de carne seca desfiada no tempero caseiro e queijo coalho derretido.",
-                "quantity": "300g",
-                "ingredients": ["Massa de pastel", "Carne seca", "Queijo coalho", "Tempero verde"],
-                "price": 14.90
+                "name": "Margherita Clássica",
+                "description": "A simplicidade perfeita: molho de tomate italiano, mussarela de búfala fresca, manjericão orgânico e azeite extra virgem. Assada no forno a lenha a 400°C!",
+                "quantity": "30cm",
+                "ingredients": ["Massa artesanal", "Molho de tomate", "Mussarela de búfala", "Manjericão"],
+                "price": 42.90
             },
             {
-                "name": "Bolinho de Bacalhau",
-                "description": "Porção com 6 unidades do clássico português feito com bacalhau desfiado na hora. Crocante por fora e cremoso por dentro, acompanhado do nosso molho tártaro especial.",
-                "quantity": "6 unidades",
-                "ingredients": ["Bacalhau", "Batata", "Salsa", "Ovo", "Farinha de trigo"],
-                "price": 22.00
+                "name": "Calabresa Artesanal",
+                "description": "Nossa calabresa especial defumada no capim-limão, combinada com cebola roxa caramelizada e azeitonas pretas de qualidade premium.",
+                "quantity": "30cm",
+                "ingredients": ["Calabresa artesanal", "Cebola roxa", "Azeitonas pretas", "Orégano"],
+                "price": 46.50
+            },
+            {
+                "name": "Fogazza Doce",
+                "description": "Sobremesa tradicional: massa de pizza doce com banana caramelizada, canela e chocolate belga derretido. Finalizada com sorvete de creme artesanal.",
+                "quantity": "25cm",
+                "ingredients": ["Massa doce", "Banana", "Chocolate belga", "Canela", "Sorvete"],
+                "price": 28.00
+            }
+        ]
+    },
+    {
+        "name": "Sushi do Mar",
+        "description": "Comida japonesa autêntica em formato de food truck! Peixes frescos entregues diariamente e preparados por chefs especializados.",
+        "phone": "+55 48 94487 2398",
+        "whatsapp": "+55 48 94487 2398",
+        "email": "contato@sushidomar.com.br",
+        "facebook": "https://facebook.com/sushidomar",
+        "instagram": "https://instagram.com/sushidomar",
+        "menu": [
+            {
+                "name": "Combinado Sushi",
+                "description": "Seleção premium com 10 peças: 4 nigiris (salmão, atum, peixe branco e camarão), 4 uramakis e 2 sashimis de salmão fresco. Acompanha missoshiru.",
+                "quantity": "10 peças",
+                "ingredients": ["Salmão fresco", "Atum", "Peixe branco", "Camarão", "Arroz japonês"],
+                "price": 59.90
+            },
+            {
+                "name": "Temaki Especial",
+                "description": "Cone gigante recheado com salmão fresco, cream cheese, cebolinha e gergelim tostado. Crocância do nori com cremosidade perfeita!",
+                "quantity": "1 unidade",
+                "ingredients": ["Salmão", "Cream cheese", "Cebolinha", "Gergelim", "Nori"],
+                "price": 24.50
+            },
+            {
+                "name": "Yakissoba Vegetariano",
+                "description": "Macarrão stir-fry com legumes frescos da estação, tofu grelhado e molho especial. Opção leve e saborosa para quem prefere sem carne.",
+                "quantity": "350g",
+                "ingredients": ["Macarrão", "Legumes sazonais", "Tofu", "Molho especial"],
+                "price": 32.00
+            }
+        ]
+    },
+    {
+        "name": "Churrascaria Gaúcha",
+        "description": "Os cortes nobres do sul preparados na brasa como manda a tradição! Carnes maturadas, tempero simples e técnica apurada para garantir o melhor churrasco.",
+        "phone": "+55 48 95532 7841",
+        "whatsapp": "+55 48 95532 7841",
+        "email": "contato@gauchachurrascaria.com.br",
+        "facebook": "https://facebook.com/gauchachurrascaria",
+        "instagram": "https://instagram.com/gauchachurrascaria",
+        "menu": [
+            {
+                "name": "Picanha na Brasa",
+                "description": "O corte mais nobre, assado na brasa com sal grosso e servido com farofa de bacon caseira. Ponto perfeito: suculenta por dentro e crocante por fora!",
+                "quantity": "300g",
+                "ingredients": ["Picanha", "Sal grosso", "Farofa de bacon", "Vinagrete"],
+                "price": 49.90
+            },
+            {
+                "name": "Costela Barbecue",
+                "description": "Nossa costela desfiada cozida lentamente por 8h, finalizada na churrasqueira com molho barbecue artesanal. Derrete na boca!",
+                "quantity": "250g",
+                "ingredients": ["Costela bovina", "Molho barbecue", "Pão francês"],
+                "price": 38.50
+            },
+            {
+                "name": "Salada Gaúcha",
+                "description": "Mix de folhas frescas com tomate cereja, pepino, croutons artesanais e tiras de carne grelhada. Opção equilibrada para acompanhar as carnes.",
+                "quantity": "300g",
+                "ingredients": ["Alface", "Rúcula", "Tomate cereja", "Pepino", "Croutons", "Carne"],
+                "price": 24.00
             }
         ]
     }

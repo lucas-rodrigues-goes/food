@@ -8,6 +8,7 @@ const styles = require('../style/general');
 
 // Assets
 const restaurantsInfo = require('../assets/data/restaurants_info.json')
+const restaurantImage = require('../assets/images/boteco_sample_img.jpg')
 
 // Output
 module.exports = function Restaurants({ navigation }) {
@@ -21,11 +22,12 @@ module.exports = function Restaurants({ navigation }) {
 		restaurantElements.push(
 			<TouchableOpacity style={{width: '100%'}} onPress={navigate} key={restaurant.name}>
 				<Container title={restaurant.name}>
-					{/* <Center>
+					<Center>
 						<Image
-							source={restaurant.image}
+							style={styles.image}
+							source={restaurantImage}
 						/>
-					</Center> */}
+					</Center>
 				</Container>
 			</TouchableOpacity>
 		)

@@ -53,6 +53,7 @@ function MenuItem({ route, navigation }) {
 							color="#46c"
 							onPress={async () => {
 								await ShoppingCart.addItem(item)
+								alert(`Item adicionado ao carrinho!`)
 								if (restaurant) navigation.navigate('Informações do Restaurante', restaurant)
 								else navigation.navigate('Carrinho de Compras')
 							}}

@@ -1,8 +1,6 @@
 import * as React from 'react';
-
-// Async
 const { useState, useEffect } = React;
-const { getItems, removeItem, buyItems } = require('../modules/Cart');
+const { getItems, removeItem, buyItems, getCartArray, addItem } = require('../modules/Cart');
 
 // Components
 const { Container, Center } = require('../components/structure')
@@ -14,108 +12,117 @@ const styles = require('../style/general');
 const { Ionicons } = require('@expo/vector-icons');
 
 const CartScreen = ({ navigation }) => {
-	// Dynamic variables
-	const [total, setTotal] = useState(0);
-	const [CartItems, setCartItems] = useState([]);
+    const [total, setTotal] = useState(0);
+    const [cartItems, setCartItems] = useState([]);
 
-	// Updates the page
-	const updatePage = async () => {
-		// Gets current items
-		const items = await getItems();
-		
-		// Sums total price
-		let total = 0;
-		for (const item of items) total += item.price
-		setTotal(total);
+    const updatePage = async () => {
+        const itemsArray = await getCartArray();
+        
+        let calculatedTotal = 0;
+        itemsArray.forEach(item => {
+            calculatedTotal += item.price * item.quantity;
+        });
+        setTotal(calculatedTotal);
 
-		// Creates cart items list
-		const tempCartItems = [];
-		for (let index = 0; index < items.length; index++) {
-			const item = items[index];
-			tempCartItems.push(CartItem({item, index}));
-		}
-		setCartItems(tempCartItems);
-	};
+        const tempCartItems = [];
+        Object.entries(await getItems()).forEach(([hash, { item, quantity }], index) => {
+            tempCartItems.push(
+                <CartItem 
+                    key={hash}
+                    item={{ ...item, quantity }} 
+                    hash={hash} 
+                    index={index} 
+                />
+            );
+        });
+        setCartItems(tempCartItems);
+    };
 
-	// CartItem Component
-	const CartItem = ({item, index}) => {
+    const CartItem = ({ item, hash, index }) => {
+        const navigate = () => navigation.navigate('Item do Cardápio', [item, undefined]);
 
-		// Navigation to item page
-		const navigate = () => navigation.navigate('Item do Cardápio', [item, undefined])
+        const handleIncrease = async () => {
+            await addItem(item);
+            updatePage();
+        };
 
-		// Output
-		return (
-			<TouchableOpacity onPress={navigate} key={index}>
-				<Container style={styles.cartContainer}>
+        const handleDecrease = async () => {
+            await removeItem(hash, item.name);
+            updatePage();
+        };
+
+        return (
+			<Container style={styles.cartContainer}>
 					<View style={styles.info}>
-						<Text style={styles.name}>{item.name}</Text>
-						<Text style={styles.description}>{item.description}</Text>
-						<Text style={styles.quantity}>Quantidade: {item.quantity}</Text>
-						<Text style={styles.cartPrice}>R${item.price.toFixed(2).replace(".", ",")}</Text>
-					</View>
-					<TouchableOpacity
-						style={styles.remove}
-						onPress={async () => {await removeItem(index, item.name); updatePage()}}
-					>
-						<Ionicons name="trash-outline" size={20} color="#04048a" />
-					</TouchableOpacity>
-				</Container>
-			</TouchableOpacity>
-		)
-	}
-
-	// Calls page update on window load
-	useEffect(() => {
-		const unsubscribe = navigation.addListener('focus', updatePage);
-		return unsubscribe;
-	}, [navigation]);
-
-	// Output
-	return (
-	<ScrollView>
-		<Container style={{flex: 1, backgroundColor: "rgba(0,0,0,0)"}}>
-			{CartItems.length === 0 
-				? // If cart is empty
-					<>
-					<Center style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
-						<Ionicons name="cart-outline" size={50} color="#ccc" />
-						<Text style={{fontSize: 18, color: '#999', marginTop: 10}}>Seu carrinho está vazio</Text>
-					</Center>
-					</>
-				: // Else
-					<>
-					{/* Item List */}
-					<View style={{ flex: 1 }}>
-						<View style={{flex: 1, padding: 15, paddingTop: 0}}>
-							{CartItems}
-						</View>
-					</View>
-					{/* Summary */}
-					<View style={{
-						position: 'sticky', 
-						bottom: 0, 
-						margin: 0,
-						borderTopWidth: 1, 
-						borderTopColor: '#eee', 
-						padding: 20, 
-						backgroundColor: '#fff'
-					}}>
-						<Text style={{fontSize: 18, fontWeight: 'bold', textAlign: 'right', marginRight: 10, marginBottom: 15}}>
-							Total: <Text style={{color: '#46c'}}>
-								R${total.toFixed(2).replace(".", ",")}
+						<TouchableOpacity onPress={navigate}>
+							<Text style={styles.name}>{item.name}</Text>
+							<Text style={styles.description}>{item.ingredients.join(", ")}</Text>
+							<Text style={styles.cartPrice}>
+								R${(item.price * item.quantity).toFixed(2).replace(".", ",")}
 							</Text>
-						</Text>
-						<Button
-							title="Finalizar Compra"
-							color="#46c"
-							onPress={async () => {await buyItems(); updatePage();}}
-						/>
+						</TouchableOpacity>
 					</View>
-					</>
-			}
-		</Container>
-	</ScrollView>
-	);
+				<View style={styles.verticalQuantityControls}>
+					<TouchableOpacity 
+						onPress={handleIncrease}
+						style={styles.arrowButton}
+					>
+						<Ionicons name="chevron-up" size={24} color="#46c" />
+					</TouchableOpacity>
+					<Text style={styles.quantityText}>{item.quantity}</Text>
+					<TouchableOpacity 
+						onPress={handleDecrease}
+						style={styles.arrowButton}
+					>
+						<Ionicons name="chevron-down" size={24} color="#46c" />
+					</TouchableOpacity>
+				</View>
+			</Container>
+        );
+    };
+
+    useEffect(() => {
+        const unsubscribe = navigation.addListener('focus', updatePage);
+        return unsubscribe;
+    }, [navigation]);
+
+    return (
+        <Container style={{flex: 1, backgroundColor: "rgba(0,0,0,0)"}}>
+            {cartItems.length === 0 ? (
+                <Center style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
+                    <Ionicons name="cart-outline" size={50} color="#ccc" />
+                    <Text style={{fontSize: 18, color: '#999', marginTop: 10}}>
+                        Seu carrinho está vazio
+                    </Text>
+                </Center>
+            ) : (
+                <>
+                    <ScrollView style={{height: '85%'}}>
+                        <View style={{ flex: 1 }}>
+                            <View style={{flex: 1, padding: 15, paddingTop: 0}}>
+                                {cartItems}
+                            </View>
+                        </View>
+                    </ScrollView>
+                    <View style={styles.checkoutContainer}>
+                        <Text style={styles.totalText}>
+                            Total: <Text style={{color: '#46c'}}>
+                                R${total.toFixed(2).replace(".", ",")}
+                            </Text>
+                        </Text>
+                        <Button
+                            title="Finalizar Compra"
+                            color="#46c"
+                            onPress={async () => {
+                                await buyItems(); 
+                                navigation.navigate('Inicio')
+                            }}
+                        />
+                    </View>
+                </>
+            )}
+        </Container>
+    );
 };
 
 module.exports = CartScreen;

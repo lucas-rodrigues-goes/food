@@ -26,7 +26,6 @@ module.exports = StyleSheet.create({
   image: {
     height: 160,
     width: 320,
-    marginBottom: 20,
   },
   icon: {
     width: 30,
@@ -86,4 +85,48 @@ module.exports = StyleSheet.create({
     padding: 5,
     alignSelf: 'flex-start',
   },
+  quantityControls: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    width: 100,
+},
+quantityText: {
+    fontSize: 18,
+    fontWeight: 'bold',
+    color: '#46c',
+    marginHorizontal: 8,
+},
+verticalQuantityControls: {
+  flexDirection: 'column',
+  alignItems: 'center',
+  justifyContent: 'center',
+  marginLeft: 10,
+},
+quantityText: {
+  fontSize: 18,
+  fontWeight: 'bold',
+  color: '#46c',
+  marginVertical: 4,
+},
+arrowButton: {
+  padding: 4,
+},
+checkoutContainer: {
+  height: '15%',
+  position: 'sticky', 
+  bottom: 0, 
+  margin: 0,
+  borderTopWidth: 1, 
+  borderTopColor: '#eee', 
+  padding: 20, 
+  backgroundColor: '#fff'
+},
+totalText: {
+  fontSize: 18, 
+  fontWeight: 'bold', 
+  textAlign: 'right', 
+  marginRight: 10, 
+  marginBottom: 15
+}
 });
