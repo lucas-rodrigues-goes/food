@@ -57,7 +57,6 @@ const CartIcon = ({ navigation }) => {
 	// Update component
 	const updateCartCount = async () => {
 			const cartItems = await getItems();
-			console.log(cartItems)
 			let amount = 0;
 			for (const key in cartItems) {
 				const item = cartItems[key]
@@ -102,7 +101,7 @@ export default function App() {
 	return (
 		<NavigationContainer>
 			<Drawer.Navigator 
-				initialRouteName="Splash" 
+				initialRouteName="Inicio" 
 				screenOptions={({ navigation }) => ({
 					headerShown: true,
 					headerRight: () => <CartIcon navigation={navigation} />,

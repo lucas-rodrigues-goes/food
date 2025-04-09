@@ -113,7 +113,7 @@ arrowButton: {
   padding: 4,
 },
 checkoutContainer: {
-  height: '15%',
+  height: '20%',
   position: 'sticky', 
   bottom: 0, 
   margin: 0,

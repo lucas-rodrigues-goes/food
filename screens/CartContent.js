@@ -97,7 +97,7 @@ const CartScreen = ({ navigation }) => {
                 </Center>
             ) : (
                 <>
-                    <ScrollView style={{height: '85%'}}>
+                    <ScrollView style={{height: '80%'}}>
                         <View style={{ flex: 1 }}>
                             <View style={{flex: 1, padding: 15, paddingTop: 0}}>
                                 {cartItems}

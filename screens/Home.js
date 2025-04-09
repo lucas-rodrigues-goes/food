@@ -60,12 +60,12 @@ module.exports = function Home({ navigation }) {
 					</Text>
 
 					{/* Site */}
-					<Text style={[styles.contactText, {marginBottom: 20}]}>
-						<Text style={{fontWeight: "bold"}}>
-							Site: 
-						</Text> 
-						<TouchableOpacity style={{display: "inline", color: "#37c"}} onPress={() => Linking.openURL(contactInfo.website)}>
-							<Text> {contactInfo.website}</Text>
+					<Text style={[styles.contactText, {marginBottom: 20}]}> 
+						<TouchableOpacity style={{height: 30}} onPress={() => Linking.openURL(contactInfo.website)}>
+							<Text style={styles.contactText}>
+								<Text style={{fontWeight: 'bold'}}>Site: </Text>
+								<Text style={{color: "#37c"}}> {contactInfo.website}</Text>
+							</Text>
 						</TouchableOpacity>
 					</Text>
 				</View>
