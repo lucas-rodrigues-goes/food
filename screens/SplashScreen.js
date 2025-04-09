@@ -20,11 +20,15 @@ function SplashScreen ({ navigation }) {
       flex: 1, 
       justifyContent: 'center', 
       alignItems: 'center',
-      backgroundColor: '#fff'
+      backgroundColor: '#fff',
     }}>
       <Image 
         source={logo} 
-        style={styles.logoSplash}
+        style={styles.logoSplash || {
+          width: 300,
+          height: 300,
+          resizeMode: 'contain',
+        }}
         resizeMode="contain"
       />
     </View>
