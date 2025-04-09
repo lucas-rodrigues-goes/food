@@ -24,7 +24,7 @@ const CartItem = ({item, index, navigation}) => {
 					<Text style={styles.name}>{item.name}</Text>
 					<Text style={styles.description}>{item.description}</Text>
 					<Text style={styles.quantity}>Quantidade: {item.quantity}</Text>
-					<Text style={styles.cartPrice}>R$ {item.price.toFixed(2)}</Text>
+					<Text style={styles.cartPrice}>R$ {item.price.toFixed(2).replace(".", ",")}</Text>
 				</View>
 				<TouchableOpacity
 					style={styles.remove}
@@ -91,11 +91,12 @@ const CartScreen = ({ navigation }) => {
 					</View>
 					{/* Summary */}
 					<View style={{borderTopWidth: 1, borderTopColor: '#eee', padding: 20, backgroundColor: '#fff'}}>
-						<Text style={{fontSize: 18, fontWeight: 'bold', textAlign: 'right', marginBottom: 15}}>
-							Total: R$ {total.toFixed(2)}
+						<Text style={{fontSize: 18, fontWeight: 'bold', textAlign: 'right', marginRight: 10, marginBottom: 15}}>
+							Total: R$ {total.toFixed(2).replace(".", ",")}
 						</Text>
 						<Button
 							title="Finalizar Compra"
+							color="#46c"
 							onPress={async () => {await buyItems(); updatePage();}}
 						/>
 					</View>
