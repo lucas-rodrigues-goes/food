@@ -2,192 +2,75 @@
     {
         "name": "Hamburgueria Brasil",
         "description": "Food truck especializado em hambúrgueres artesanais, com pão caseiro e carne suculenta. No nosso cardápio, destaque para o 'Brasil Burger', com queijo da serra e bacon crocante.",
-        "phone": "+5548111049028",
-        "whatsapp": "+5548111049028",
+        "phone": "+55 48 91104 9028",
+        "whatsapp": "+55 48 91104 9028",
         "email": "contato@hamburgueriabrasil.com.br",
         "facebook": "https://facebook.com/hamburgueriabrasil",
         "instagram": "https://instagram.com/hamburgueriabrasil",
         "menu": [
             {
                 "name": "Brasil Burger",
-                "description": "Hambúrguer artesanal 180g, queijo da serra, bacon crocante, alface, tomate e molho especial.",
+                "description": "Nosso carro-chefe! Um hambúrguer suculento de 180g com queijo da serra derretido, bacon caramelizado e nosso molho secreto que vai te surpreender. Servido no pão brioche artesanal levemente tostado.",
                 "quantity": "300g",
                 "ingredients": ["Pão brioche", "Carne Angus 180g", "Queijo da serra", "Bacon", "Alface", "Tomate", "Molho especial"],
                 "price": 28.90
             },
             {
                 "name": "Frango Crispy",
-                "description": "Hambúrguer de frango empanado, queijo prato, rúcula e maionese de ervas.",
+                "description": "A crocância perfeita! Filé de frango empanado na hora com nossa farofa especial, queijo prato derretido e maionese de ervas frescas. Uma explosão de texturas em cada mordida!",
                 "quantity": "300g",
                 "ingredients": ["Pão australiano", "Filé de frango empanado", "Queijo prato", "Rúcula", "Maionese de ervas"],
                 "price": 22.50
-            },
-            {
-                "name": "Batata Rustica",
-                "description": "Porção de batata rústica temperada com alecrim e sal marinho.",
-                "quantity": "200g",
-                "ingredients": ["Batata", "Alecrim", "Sal marinho", "Azeite"],
-                "price": 12.00
             }
         ]
     },
     {
         "name": "Acarajé da Baiana",
         "description": "O melhor acarajé do food hall! Feito na hora com tempero caseiro, vatapá cremoso e camarão seco. Uma experiência de autêntica culinária baiana em formato de food truck.",
-        "phone": "+5548111049028",
-        "whatsapp": "+5548111049028",
+        "phone": "+55 48 91104 9028",
+        "whatsapp": "+55 48 91104 9028",
         "email": "contato@acarajebaiana.com.br",
         "facebook": "https://facebook.com/acarajebaiana",
         "instagram": "https://instagram.com/acarajebaiana",
         "menu": [
             {
                 "name": "Acarajé Tradicional",
-                "description": "Bolinho de feijão-fradinho frito no azeite de dendê, recheado com vatapá, caruru e camarão seco.",
+                "description": "Uma viagem à Bahia em cada mordida! Nosso bolinho de feijão-fradinho frito no azeite de dendê puro é recheado com vatapá cremoso, caruru caseiro e camarão seco selecionado.",
                 "quantity": "200g",
                 "ingredients": ["Feijão-fradinho", "Dendê", "Vatapá", "Caruru", "Camarão seco", "Pimenta"],
                 "price": 18.90
             },
             {
                 "name": "Abará",
-                "description": "Versão cozida do acarajé, menos calórica e igualmente saborosa.",
+                "description": "A versão mais leve do acarajé, cozida no vapor com folha de bananeira. Mantém todo o sabor tradicional, mas com menos calorias. Perfeito para quem quer experimentar a culinária baiana de forma diferente!",
                 "quantity": "200g",
                 "ingredients": ["Feijão-fradinho", "Dendê", "Cebola", "Gengibre", "Camarão seco"],
                 "price": 16.50
-            },
-            {
-                "name": "Cocada Cremosa",
-                "description": "Doce tradicional de coco, cremoso e irresistível.",
-                "quantity": "150g",
-                "ingredients": ["Coco ralado", "Leite condensado", "Açúcar"],
-                "price": 6.00
             }
         ]
     },
     {
         "name": "Boteco Zé Pilintra",
         "description": "Food truck com vibe de boteco, servindo chopp gelado, pastéis crocantes e bolinhos de bacalhau. O point certo para um happy hour descontraído no food hall.",
-        "phone": "+5548111049028",
-        "whatsapp": "+5548111049028",
+        "phone": "+55 48 91104 9028",
+        "whatsapp": "+55 48 91104 9028",
         "email": "contato@zepilintraboteco.com.br",
         "facebook": "https://facebook.com/zepilintraboteco",
         "instagram": "https://instagram.com/zepilintraboteco",
         "menu": [
             {
                 "name": "Pastel de Carne Seca",
-                "description": "Pastel frito crocante com recheio de carne seca desfiada e queijo coalho.",
+                "description": "Crocância que faz barulho! Nosso pastel é frito na hora com massa extra fina e recheio generoso de carne seca desfiada no tempero caseiro e queijo coalho derretido.",
                 "quantity": "300g",
                 "ingredients": ["Massa de pastel", "Carne seca", "Queijo coalho", "Tempero verde"],
                 "price": 14.90
             },
             {
                 "name": "Bolinho de Bacalhau",
-                "description": "Porção com 6 unidades de bolinho de bacalhau cremoso por dentro e crocante por fora.",
+                "description": "Porção com 6 unidades do clássico português feito com bacalhau desfiado na hora. Crocante por fora e cremoso por dentro, acompanhado do nosso molho tártaro especial.",
                 "quantity": "6 unidades",
                 "ingredients": ["Bacalhau", "Batata", "Salsa", "Ovo", "Farinha de trigo"],
                 "price": 22.00
-            },
-            {
-                "name": "Chopp Artesanal",
-                "description": "Chopp gelado da cervejaria local, estilo Pilsen refrescante.",
-                "quantity": "400ml",
-                "ingredients": ["Água", "Malte", "Lúpulo", "Fermento"],
-                "price": 12.00
-            }
-        ]
-    },
-    {
-        "name": "Gaúcho na Brasa",
-        "description": "Churrasco gaúcho em formato de food truck! Carnes nobres assadas na brasa, servidas no pão ou no prato. Destaque para o 'Xis Gaúcho', um sanduíche que é pura tradição.",
-        "phone": "+5548111049028",
-        "whatsapp": "+5548111049028",
-        "email": "contato@gauchonabrasa.com.br",
-        "facebook": "https://facebook.com/gauchonabrasa",
-        "instagram": "https://instagram.com/gauchonabrasa",
-        "menu": [
-            {
-                "name": "Xis Gaúcho",
-                "description": "Sanduíche com pão de hambúrguer, filé mignon, queijo prato, ovo, alface, tomate e maionese.",
-                "quantity": "450g",
-                "ingredients": ["Pão de hambúrguer", "Filé mignon", "Queijo prato", "Ovo", "Alface", "Tomate", "Maionese"],
-                "price": 32.90
-            },
-            {
-                "name": "Costela no Pão",
-                "description": "Pão francês recheado com costela desfiada e molho barbecue.",
-                "quantity": "400g",
-                "ingredients": ["Pão francês", "Costela bovina", "Molho barbecue", "Vinagrete"],
-                "price": 26.50
-            },
-            {
-                "name": "Salada Gaúcha",
-                "description": "Mix de folhas, tomate, pepino, croutons e tiras de carne grelhada.",
-                "quantity": "300g",
-                "ingredients": ["Alface", "Rúcula", "Tomate", "Pepino", "Croutons", "Carne bovina"],
-                "price": 24.00
-            }
-        ]
-    },
-    {
-        "name": "Açaí Ipiranga",
-        "description": "Food truck de açaí cremoso e natural, com opções de acompanhamentos como granola, frutas frescas e leite condensado. Perfeito para um lanche rápido e saudável no food hall.",
-        "phone": "+5548111049028",
-        "whatsapp": "+5548111049028",
-        "email": "contato@acaiipiranga.com.br",
-        "facebook": "https://facebook.com/acaiipiranga",
-        "instagram": "https://instagram.com/acaiipiranga",
-        "menu": [
-            {
-                "name": "Açaí Tradicional",
-                "description": "Açaí cremoso acompanhado de banana, granola e mel.",
-                "quantity": "400ml",
-                "ingredients": ["Açaí puro", "Banana", "Granola", "Mel"],
-                "price": 18.00
-            },
-            {
-                "name": "Açaí Power",
-                "description": "Açaí com whey protein, morango, blueberry e pasta de amendoim.",
-                "quantity": "450ml",
-                "ingredients": ["Açaí", "Whey protein", "Morango", "Blueberry", "Pasta de amendoim"],
-                "price": 24.90
-            },
-            {
-                "name": "Smoothie de Frutas",
-                "description": "Bebida refrescante de morango, banana e iogurte natural.",
-                "quantity": "400ml",
-                "ingredients": ["Morango", "Banana", "Iogurte natural", "Mel"],
-                "price": 14.50
-            }
-        ]
-    },
-    {
-        "name": "Chopperia Araújo",
-        "description": "O food truck dos amantes de cerveja! Chopp gelado, cervejas artesanais e petiscos incríveis, como torresmo crocante e onion rings. Visite-nos e aproveite o happy hour!",
-        "phone": "+5548111049028",
-        "whatsapp": "+5548111049028",
-        "email": "contato@chopperiaaraujo.com.br",
-        "facebook": "https://facebook.com/chopperiaaraujo",
-        "instagram": "https://instagram.com/chopperiaaraujo",
-        "menu": [
-            {
-                "name": "Torresmo Crocante",
-                "description": "Porção de torresmo dourado e sequinho, acompanhado de limão.",
-                "quantity": "200g",
-                "ingredients": ["Pele de porco", "Sal grosso", "Limão"],
-                "price": 16.90
-            },
-            {
-                "name": "Onion Rings",
-                "description": "Anéis de cebola empanados e fritos, servidos com molho barbecue.",
-                "quantity": "200g",
-                "ingredients": ["Cebola", "Farinha de rosca", "Ovo", "Molho barbecue"],
-                "price": 14.50
-            },
-            {
-                "name": "Cerveja Artesanal IPA",
-                "description": "Cerveja lupulada com amargor equilibrado e notas cítricas.",
-                "quantity": "500ml",
-                "ingredients": ["Água", "Malte", "Lúpulo", "Fermento"],
-                "price": 18.00
             }
         ]
     }

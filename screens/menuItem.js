@@ -51,8 +51,8 @@ function MenuItem({ route, navigation }) {
 							style={{width: '48%'}}
 							title="Adicionar ao carrinho"
 							color="#46c"
-							onPress={() => {
-								ShoppingCart.addItem(item)
+							onPress={async () => {
+								await ShoppingCart.addItem(item)
 								if (restaurant) navigation.navigate('Informações do Restaurante', restaurant)
 								else navigation.navigate('Carrinho de Compras')
 							}}

@@ -7,35 +7,8 @@ const { getItems, removeItem, buyItems } = require('../modules/Cart');
 // Components
 const { Container, Center } = require('../components/structure')
 const { Button } = require('../components/buttons');
-const { View, Text, StyleSheet, TouchableOpacity } = require('react-native');
+const { View, Text, ScrollView, TouchableOpacity } = require('react-native');
 const styles = require('../style/general');
-
-// CartItem Component
-const CartItem = ({item, index, navigation}) => {
-
-	// Navigation to item page
-	const navigate = () => navigation.navigate('Item do Cardápio', [item, undefined])
-
-	// Output
-	return (
-		<TouchableOpacity onPress={navigate} key={index}>
-			<Container style={styles.cartContainer}>
-				<View style={styles.info}>
-					<Text style={styles.name}>{item.name}</Text>
-					<Text style={styles.description}>{item.description}</Text>
-					<Text style={styles.quantity}>Quantidade: {item.quantity}</Text>
-					<Text style={styles.cartPrice}>R${item.price.toFixed(2).replace(".", ",")}</Text>
-				</View>
-				<TouchableOpacity
-					style={styles.remove}
-					onPress={() => removeItem(index, item.name)}
-				>
-					<Ionicons name="trash-outline" size={20} color="#04048a" />
-				</TouchableOpacity>
-			</Container>
-		</TouchableOpacity>
-	)
-}
 
 // External
 const { Ionicons } = require('@expo/vector-icons');
@@ -59,10 +32,37 @@ const CartScreen = ({ navigation }) => {
 		const tempCartItems = [];
 		for (let index = 0; index < items.length; index++) {
 			const item = items[index];
-			tempCartItems.push(CartItem({item, index, navigation}));
+			tempCartItems.push(CartItem({item, index}));
 		}
 		setCartItems(tempCartItems);
 	};
+
+	// CartItem Component
+	const CartItem = ({item, index}) => {
+
+		// Navigation to item page
+		const navigate = () => navigation.navigate('Item do Cardápio', [item, undefined])
+
+		// Output
+		return (
+			<TouchableOpacity onPress={navigate} key={index}>
+				<Container style={styles.cartContainer}>
+					<View style={styles.info}>
+						<Text style={styles.name}>{item.name}</Text>
+						<Text style={styles.description}>{item.description}</Text>
+						<Text style={styles.quantity}>Quantidade: {item.quantity}</Text>
+						<Text style={styles.cartPrice}>R${item.price.toFixed(2).replace(".", ",")}</Text>
+					</View>
+					<TouchableOpacity
+						style={styles.remove}
+						onPress={async () => {await removeItem(index, item.name); updatePage()}}
+					>
+						<Ionicons name="trash-outline" size={20} color="#04048a" />
+					</TouchableOpacity>
+				</Container>
+			</TouchableOpacity>
+		)
+	}
 
 	// Calls page update on window load
 	useEffect(() => {
@@ -72,6 +72,7 @@ const CartScreen = ({ navigation }) => {
 
 	// Output
 	return (
+	<ScrollView>
 		<Container style={{flex: 1, backgroundColor: "rgba(0,0,0,0)"}}>
 			{CartItems.length === 0 
 				? // If cart is empty
@@ -90,9 +91,19 @@ const CartScreen = ({ navigation }) => {
 						</View>
 					</View>
 					{/* Summary */}
-					<View style={{borderTopWidth: 1, borderTopColor: '#eee', padding: 20, backgroundColor: '#fff'}}>
+					<View style={{
+						position: 'sticky', 
+						bottom: 0, 
+						margin: 0,
+						borderTopWidth: 1, 
+						borderTopColor: '#eee', 
+						padding: 20, 
+						backgroundColor: '#fff'
+					}}>
 						<Text style={{fontSize: 18, fontWeight: 'bold', textAlign: 'right', marginRight: 10, marginBottom: 15}}>
-							Total: R${total.toFixed(2).replace(".", ",")}
+							Total: <Text style={{color: '#46c'}}>
+								R${total.toFixed(2).replace(".", ",")}
+							</Text>
 						</Text>
 						<Button
 							title="Finalizar Compra"
@@ -103,6 +114,7 @@ const CartScreen = ({ navigation }) => {
 					</>
 			}
 		</Container>
+	</ScrollView>
 	);
 };
 

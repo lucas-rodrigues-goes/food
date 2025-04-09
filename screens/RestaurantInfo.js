@@ -20,11 +20,11 @@ const menuImage = require('../assets/images/menu_sample_img.png')
 const ItemCard = function ({menuItem, navigate}) {
     return (
         <TouchableOpacity onPress={navigate}>
-            <Card containerStyle={{ width: 120, margin: 5, borderRadius: 10, alignItems:'center'}}>
+            <Card containerStyle={{ width: 140, margin: 5, borderRadius: 10, alignItems:'center'}}>
                 <Card.Title style={{
                     textAlign: 'center', 
                     color: '#444', 
-                    fontSize: 12,
+                    fontSize: 11,
                 }}>{menuItem.name} </Card.Title>
                 <Image
                         style={styles.foodIcon}
