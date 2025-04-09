@@ -8,6 +8,7 @@ const { getItems, removeItem, buyItems } = require('../modules/Cart');
 const { Container, Center } = require('../components/structure')
 const { Button } = require('../components/buttons');
 const { View, Text, StyleSheet, TouchableOpacity } = require('react-native');
+const styles = require('../style/general');
 
 // External
 const { Ionicons } = require('@expo/vector-icons');
@@ -19,63 +20,28 @@ const CartScreen = ({ navigation }) => {
 
 	// Create cart item element
 	const cartItem = ({item, index}) => {
-		// Style
-		const style = StyleSheet.create({
-			container: {
-				flexDirection: 'row',
-				justifyContent: 'space-between',
-				backgroundColor: '#fff',
-				borderRadius: 8,
-				padding: 15,
-				marginBottom: 10,
-				elevation: 2,
-			},
-			info: {
-				flex: 1,
-			},
-			name: {
-				fontSize: 16,
-				fontWeight: 'bold',
-				marginBottom: 5,
-				color: '#333',
-			},
-			description: {
-				fontSize: 14,
-				color: '#666',
-				marginBottom: 5,
-			},
-			quantity: {
-				fontSize: 12,
-				color: '#888',
-				marginBottom: 5,
-			},
-			price: {
-				fontSize: 16,
-				fontWeight: 'bold',
-				color: '#e53935',
-			},
-			remove: {
-				padding: 5,
-				alignSelf: 'flex-start',
-			},
-		})
+
+		// Navigation to item page
+		const navigate = () => navigation.navigate('Item do Cardápio', item)
 
 		// Output
 		return (
-			<Container style={style.container} key={index}>
-				<View style={style.info}>
-					<Text style={style.name}>{item.name}</Text>
-					<Text style={style.description}>{item.description}</Text>
-					<Text style={style.quantity}>Quantidade: {item.quantity}</Text>
-					<Text style={style.price}>R$ {item.price.toFixed(2)}</Text>
-				</View>
-				<TouchableOpacity
-					style={style.remove}
-					onPress={() => removeItem(index, item.name)}
-				>
-					<Ionicons name="trash-outline" size={20} color="#e53935" />
-				</TouchableOpacity>
-			</Container>
+			<TouchableOpacity onPress={navigate} key={index}>
+				<Container style={styles.cartContainer}>
+					<View style={styles.info}>
+						<Text style={styles.name}>{item.name}</Text>
+						<Text style={styles.description}>{item.description}</Text>
+						<Text style={styles.quantity}>Quantidade: {item.quantity}</Text>
+						<Text style={styles.cartPrice}>R$ {item.price.toFixed(2)}</Text>
+					</View>
+					<TouchableOpacity
+						style={styles.remove}
+						onPress={() => removeItem(index, item.name)}
+					>
+						<Ionicons name="trash-outline" size={20} color="#04048a" />
+					</TouchableOpacity>
+				</Container>
+			</TouchableOpacity>
 		)
 	}
 

@@ -82,4 +82,41 @@ module.exports = StyleSheet.create({
     fontSize: 12,
     fontWeight: 'bold',
   },
+  cartContainer: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    backgroundColor: '#fff',
+    borderRadius: 8,
+    padding: 15,
+    marginBottom: 10,
+    elevation: 2,
+  },
+  info: {
+    flex: 1,
+  },
+  name: {
+    fontSize: 16,
+    fontWeight: 'bold',
+    marginBottom: 5,
+    color: '#333',
+  },
+  description: {
+    fontSize: 14,
+    color: '#666',
+    marginBottom: 5,
+  },
+  quantity: {
+    fontSize: 12,
+    color: '#888',
+    marginBottom: 5,
+  },
+  cartPrice: {
+    fontSize: 16,
+    fontWeight: 'bold',
+    color: '#04048a',
+  },
+  remove: {
+    padding: 5,
+    alignSelf: 'flex-start',
+  },
 });
