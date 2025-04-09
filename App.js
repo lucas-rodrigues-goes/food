@@ -107,11 +107,11 @@ export default function App() {
 					headerRight: () => <CartIcon navigation={navigation} />,
 				})}
 			>
-				<Drawer.Screen 
+				{/* <Drawer.Screen 
 					name="Splash" 
 					component={SplashScreen} 
 					options={{ headerShown: false, ...hidden }} 
-				/>
+				/> */}
 				<Drawer.Screen name="Inicio" component={Home} />
 				<Drawer.Screen name="Eventos" component={Events} />
 				<Drawer.Screen name="Restaurantes" component={Restaurants} />
