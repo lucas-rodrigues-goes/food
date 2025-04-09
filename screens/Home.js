@@ -19,7 +19,6 @@ module.exports = function Home({ navigation }) {
 		const url = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(contactInfo.address)}`
 		Linking.openURL(url)
 	}
-	const handleCall = () => Linking.openURL(`tel:${contactInfo.phone}`)
 
 	return (
 		<ScrollView>
@@ -75,7 +74,11 @@ module.exports = function Home({ navigation }) {
 				<View style={{ flexDirection: 'row', justifyContent: 'center' }}>
 					<IconButton
 						source={require('../assets/images/call_icon.png')}
-						onPress={handleCall}
+						onPress={() => Linking.openURL(`tel:${contactInfo.phone}`)}
+					/>
+					<IconButton
+						source={require('../assets/images/email_logo.png')}
+						onPress={() => Linking.openURL(`mailto:${contactInfo.email}?subject=Contato%20Pátio`)}
 					/>
 					<IconButton
 						source={require('../assets/images/whatsapp_logo.png')}
@@ -83,11 +86,7 @@ module.exports = function Home({ navigation }) {
 					/>
 					<IconButton
 						source={require('../assets/images/facebook_logo.png')}
-						onPress={() => Linking.openURL(restaurant.facebook)}
-					/>
-					<IconButton
-						source={require('../assets/images/email_logo.png')}
-						onPress={() => Linking.openURL(`mailto:${contactInfo.email}?subject=Contato%20Pátio`)}
+						onPress={() => Linking.openURL(contactInfo.facebook)}
 					/>
 				</View>
 			</Container>

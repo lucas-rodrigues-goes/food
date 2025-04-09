@@ -21,11 +21,6 @@ const menuImage = require('../assets/images/menu_sample_img.png')
 module.exports = function RestaurantInfo({ route, navigation }) {
     const restaurant = route.params;
 
-	// Button Handlers
-	const handleCall = () => Linking.openURL(`tel:${restaurant.phone}`)
-	const handleWhatsApp = () => Linking.openURL(`https://wa.me/${restaurant.whatsapp}`)
-	const handleEmail = () => Linking.openURL(`mailto:${restaurant.email}?subject=Contato%20Pátio`)
-
     // Create Menu List
 	const menuElements = []
 	for (const menuItem of restaurant.menu) {
@@ -59,52 +54,23 @@ module.exports = function RestaurantInfo({ route, navigation }) {
 	return (
 		<ScrollView>
 		  <Center>
-			{/* Informações da loja */}
-			<Container title={restaurant.name}>
-				<Text style={styles.contactText}>{restaurant.description}</Text>
-				<Center>
+			{/* Apresentação */}
+            <Container title={restaurant.name}>
+                {/* Texto indentado */}
+                <View style={{paddingLeft: 10}}>
+                    <Text style={styles.contactText}>
+                        {restaurant.description}
+                    </Text>
+                </View>
+                <Center>
                     <Image 
                         style={styles.image}
                         source={restaurantImage}
                     />
+                </Center>
+            </Container>
 
-                    {/* Redes Sociais da loja */}
-                    <View style={{ flexDirection: 'row', justifyContent: 'space-around'}}>
-                        <IconButton
-                            source={facebookIcon}
-                            onPress={() => Linking.openURL(restaurant.facebook)}
-                        />
-                        <IconButton
-                            source={instagramIcon}
-                            onPress={() => Linking.openURL(restaurant.instagram)}
-                        />
-                        <IconButton
-                            source={whatsappIcon}
-                            onPress={handleWhatsApp}
-                        />
-                        <IconButton
-                            source={emailIcon}
-                            onPress={handleEmail}
-                        />
-                        <IconButton
-                            source={ifoodIcon}
-                            onPress={handleEmail}
-                        />
-                    </View>
-
-                    <Text style={[styles.contactText, {marginTop: 15}]}>{restaurant.phone}</Text>
-                    <Button
-                        title="Ligar Agora"
-                        onPress={handleCall}
-                        color="#007bff"
-                    />
-                    <Button
-                        title="Visitar Website"
-                        onPress={() => Linking.openURL(restaurant.website)}
-                        color="#6c757d"
-                    />
-				</Center>
-			</Container>
+            {/* Cardapio */}
             <Container title={"Cardápio"}>
                 <ScrollView
                     horizontal={true}
@@ -114,6 +80,48 @@ module.exports = function RestaurantInfo({ route, navigation }) {
                     {menuElements}
                 </ScrollView>
             </Container>
+
+            {/* Contato */}
+			<Container title={"Informações de contato"}>
+                {/* Texto indentado*/}
+                <View style={{paddingLeft: 10}}>
+                    {/* Telefone */}
+                    <Text style={styles.contactText}>
+                        <Text style={{fontWeight: "bold", display: "inline"}}>
+                            Telefone: 
+                        </Text> {restaurant.phone}
+                    </Text>
+                </View>
+
+                {/* Redes Sociais */}
+				<View style={{ flexDirection: 'row', justifyContent: 'center' }}>
+					<IconButton
+						source={require('../assets/images/call_icon.png')}
+						onPress={() => Linking.openURL(`tel:${restaurant.phone}`)}
+					/>
+                    <IconButton
+						source={require('../assets/images/email_logo.png')}
+						onPress={() => Linking.openURL(`mailto:${restaurant.email}?subject=Contato%20Pátio`)}
+					/>
+					<IconButton
+						source={require('../assets/images/whatsapp_logo.png')}
+						onPress={() => Linking.openURL(`https://wa.me/${restaurant.whatsapp}`)}
+					/>
+					<IconButton
+						source={require('../assets/images/facebook_logo.png')}
+						onPress={() => Linking.openURL(restaurant.facebook)}
+					/>
+                    <IconButton
+                        source={instagramIcon}
+                        onPress={() => Linking.openURL(restaurant.instagram)}
+                    />
+                    <IconButton
+                        source={ifoodIcon}
+                        onPress={() => Linking.openURL(`mailto:${restaurant.email}?subject=Contato%20Pátio`)}
+                    />
+				</View>
+            </Container>
+
 		  </Center>
 		</ScrollView>
 	  );
